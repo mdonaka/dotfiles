@@ -30,3 +30,15 @@ set background=dark
 set ignorecase
 set smartcase
 set wrapscan
+
+"######### プラグイン管理 ###########
+call plug#begin('~/.vim/plugged')
+
+Plug 'kana/vim-operator-user'
+Plug 'rhysd/vim-clang-format'
+
+call plug#end()
+
+"######### C++設定 ###########
+autocmd FileType cpp ClangFormatAutoEnable
+
