@@ -25,6 +25,9 @@ colorscheme molokai
 let g:molokai_original=1
 let g:rehash=1
 set background=dark
+" カーソル位置の記憶
+au BufWritePost * mkview
+autocmd BufReadPost * loadview
 
 "######### 検索設定 ###########
 set ignorecase
@@ -40,16 +43,19 @@ Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-clang-format'
 " C言語系の自動補完
 Plug 'justmao945/vim-clang'
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/neoinclude.vim'
 " ディレクトリの表示
 Plug 'scrooloose/nerdtree'
 " 自動補完
 Plug 'Shougo/neocomplete'
+" 括弧の自動補完
+Plug 'cohama/lexima.vim'
 
 call plug#end()
 
 "######### プラグインの設定 ###########
 " clang
-let g:clang_c_options = '-std=c11'
 let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ –pedantic-errors'
 let g:clang_format_auto = 1
 let g:clang_format_style = 'Google'
