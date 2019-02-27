@@ -45,6 +45,9 @@ Plug 'rhysd/vim-clang-format'
 Plug 'justmao945/vim-clang'
 Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/neoinclude.vim'
+" C言語便利ツール
+Plug 'vim-scripts/SingleCompile'
+Plug 'jceb/vim-hier'
 " ディレクトリの表示
 Plug 'scrooloose/nerdtree'
 " 自動補完
@@ -56,10 +59,19 @@ call plug#end()
 
 "######### プラグインの設定 ###########
 " clang
-let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ –pedantic-errors'
+let g:clang_exec = 'clang++'
+let g:clang_c_options = '-std=c11'
+let g:clang_cpp_options = '-std=c++1z -pedantic-errors'
 let g:clang_format_auto = 1
 let g:clang_format_style = 'Google'
 let g:clang_check_syntax_auto = 1
+" vim-hier
+" エラーを赤字の波線で
+execute "highlight qf_error_ucurl gui=undercurl guisp=Red"
+let g:hier_highlight_group_qf  = "qf_error_ucurl"
+" " 警告を青字の波線で
+execute "highlight qf_warning_ucurl gui=undercurl guisp=Blue"
+let g:hier_highlight_group_qfw = "qf_warning_ucurl"
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
