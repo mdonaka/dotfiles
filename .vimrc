@@ -1,3 +1,4 @@
+inoremap jj <Esc>
 "######### 表示設定 ###########
 " カーソル位置の記憶
 au BufWritePost * mkview
