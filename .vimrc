@@ -29,11 +29,25 @@ colorscheme molokai
 let g:molokai_original=1
 let g:rehash=1
 set background=dark
+" window分割キーショートカット
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap S< <C-w><
+nnoremap S> <C-w>>
+nnoremap S+ <C-w>+
+nnoremap S= <C-w>-
 
 "######### 検索設定 ###########
 set ignorecase
 set smartcase
 set wrapscan
+
+"######### ターミナル設定 ##########
+set termkey=<A-w>
+set splitbelow
+tnoremap <Esc> <A-w><S-n>
 
 "######### プラグイン管理 ###########
 call plug#begin('~/.vim/plugged')
@@ -86,14 +100,11 @@ let g:hier_highlight_group_qfw = "qf_warning_ucurl"
 
 " nerdtree
 " キー設定
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap sh <C-w>h
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " 開き方
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd vimenter * NERDTree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " vim-js-indent
 " indentの設定
