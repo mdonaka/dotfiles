@@ -37,6 +37,13 @@ set wrapscan
 "######### プラグイン管理 ###########
 call plug#begin('~/.vim/plugged')
 
+" ディレクトリの表示
+Plug 'scrooloose/nerdtree'
+" 自動補完
+Plug 'Shougo/neocomplete'
+" 括弧の自動補完
+Plug 'cohama/lexima.vim'
+
 " わからない
 Plug 'kana/vim-operator-user'
 " C言語系のformat
@@ -48,12 +55,13 @@ Plug 'Shougo/neoinclude.vim'
 " C言語便利ツール
 Plug 'vim-scripts/SingleCompile'
 Plug 'jceb/vim-hier'
-" ディレクトリの表示
-Plug 'scrooloose/nerdtree'
-" 自動補完
-Plug 'Shougo/neocomplete'
-" 括弧の自動補完
-Plug 'cohama/lexima.vim'
+
+" TypeScript
+" 色付け
+Plug 'leafgarland/typescript-vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+" 補完
+Plug 'clausreinke/typescript-tools'
 
 call plug#end()
 
