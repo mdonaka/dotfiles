@@ -44,6 +44,7 @@ nnoremap S= <C-w>-
 set ignorecase
 set smartcase
 set wrapscan
+set incsearch
 
 "######### ターミナル設定 ##########
 set termkey=<A-w>
