@@ -50,6 +50,7 @@ set incsearch
 set termkey=<A-w>
 set splitbelow
 tnoremap <Esc> <A-w><S-n>
+set belloff=all
 
 "######### プラグイン管理 ###########
 call plug#begin('~/.vim/plugged')
