@@ -40,7 +40,9 @@ nnoremap S> <C-w>>
 nnoremap S+ <C-w>+
 nnoremap S= <C-w>-
 
-nnoremap <Space>s :<C-u>write<CR> 
+" 保存終了の簡易化
+nnoremap <Space>w :<C-u>write<CR> 
+nnoremap <Space>q :<C-u>quit<CR> 
 
 "######### 検索設定 ###########
 set ignorecase
@@ -89,8 +91,9 @@ Plug 'jason0x43/vim-js-indent'
 
 " Python
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
-Plug 'scrooloose/syntastic'
-Plug 'nvie/vim-flake8',{'filetypes':'python'}
+" Plug 'scrooloose/syntastic'
+" Plug 'nvie/vim-flake8',{'filetypes':'python'}
+Plug 'w0rp/ale'
 Plug 'tell-k/vim-autopep8'
 
 call plug#end()
@@ -139,33 +142,6 @@ function! s:jedivim_hook()              " jedi-vimを使うときだけ呼び出
 	" let g:jedi#show_call_signatures   = 0 " 関数の引数表示を無効(ポップアップのバグを踏んだことがあるため)
 	autocmd FileType python setlocal omnifunc=jedi#completions   " 補完エンジンはjediを使う
 endfunction
-
-"autopep8
-function! Preserve(command)
-	Save the last search.
-	let search = @/
-	" Save the current cursor position.
-	let cursor_position = getpos('.')
-	" Save the current window position.
-	normal! H
-	let window_position = getpos('.')
-	call setpos('.', cursor_position)
-	" Execute the command.
-	execute a:command
-	" Restore the last search.
-	let @/ = search
-	" Restore the previous window position.
-	call setpos('.', window_position)
-	normal! zt
-	" Restore	the	previous cursor	position.
-	call setpos('.', cursor_position)
-endfunction
-
-function! Autopep8()
-	call Preserve(':silent %!autopep8	-')
-endfunction
-
-autocmd FileType python	nnoremap <S-f> :call Autopep8()<CR>
 
 "######### C++設定 ###########
 autocmd FileType cpp ClangFormatAutoEnable
