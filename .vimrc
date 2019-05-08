@@ -40,6 +40,8 @@ nnoremap S> <C-w>>
 nnoremap S+ <C-w>+
 nnoremap S= <C-w>-
 
+nnoremap <Space>s :<C-u>write<CR> 
+
 "######### 検索設定 ###########
 set ignorecase
 set smartcase
@@ -61,6 +63,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'Shougo/neocomplete'
 " 括弧の自動補完
 Plug 'cohama/lexima.vim'
+
+" コードの実行
+Plug 'thinca/vim-quickrun'
 
 " わからない
 Plug 'kana/vim-operator-user'
@@ -119,6 +124,9 @@ autocmd vimenter * NERDTree
 " indentの設定
 let g:js_indent_typescript = 1
 
+" quickrun
+nnoremap <F5> :<C-u>QuickRun<CR> 
+
 " jedi-vim
 set completeopt=menuone                        " 補完候補を呼び出すとき常にポップアップメニューを使う
 autocmd! User jedi-vim call s:jedivim_hook()   " vim-plugの遅延ロード呼び出し
@@ -131,9 +139,6 @@ function! s:jedivim_hook()              " jedi-vimを使うときだけ呼び出
 	" let g:jedi#show_call_signatures   = 0 " 関数の引数表示を無効(ポップアップのバグを踏んだことがあるため)
 	autocmd FileType python setlocal omnifunc=jedi#completions   " 補完エンジンはjediを使う
 endfunction
-
-" systacstic
-let g:syntastic_python_checkers = ["flake8"]
 
 "autopep8
 function! Preserve(command)
@@ -161,7 +166,6 @@ function! Autopep8()
 endfunction
 
 autocmd FileType python	nnoremap <S-f> :call Autopep8()<CR>
-
 
 "######### C++設定 ###########
 autocmd FileType cpp ClangFormatAutoEnable
