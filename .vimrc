@@ -39,6 +39,8 @@ nnoremap S< <C-w><
 nnoremap S> <C-w>>
 nnoremap S+ <C-w>+
 nnoremap S= <C-w>-
+" 新しいウインドウを右に開く
+set splitright
 
 " 保存終了の簡易化
 nnoremap <Space>w :<C-u>write<CR> 
