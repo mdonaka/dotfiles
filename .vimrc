@@ -39,10 +39,12 @@ nnoremap S< <C-w><
 nnoremap S> <C-w>>
 nnoremap S+ <C-w>+
 nnoremap S= <C-w>-
-" 保存終了ショートカット
-nnoremap <Space>w :<C-u>write<cr><Esc>
-nnoremap <Space>q :<C-u>quit<cr><Esc>
+" 新しいウインドウを右に開く
+set splitright
 
+" 保存終了の簡易化
+nnoremap <Space>w :<C-u>write<CR> 
+nnoremap <Space>q :<C-u>quit<CR> 
 
 set conceallevel=1
 "######### 検索設定 ###########
@@ -55,6 +57,7 @@ set incsearch
 set termkey=<A-w>
 set splitbelow
 tnoremap <Esc> <A-w><S-n>
+set belloff=all
 
 "######### プラグイン管理 ###########
 call plug#begin('~/.vim/plugged')
@@ -65,6 +68,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'Shougo/neocomplete'
 " 括弧の自動補完
 Plug 'cohama/lexima.vim'
+
+" コードの実行
+Plug 'thinca/vim-quickrun'
 
 " わからない
 Plug 'kana/vim-operator-user'
@@ -86,8 +92,18 @@ Plug 'jason0x43/vim-js-indent'
 " 補完
 " Plug 'clausreinke/typescript-tools'
 
+<<<<<<< HEAD
 " Python 補完
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
+=======
+" Python
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
+" Plug 'scrooloose/syntastic'
+" Plug 'nvie/vim-flake8',{'filetypes':'python'}
+Plug 'w0rp/ale'
+Plug 'tell-k/vim-autopep8'
+
+>>>>>>> b1214acf8c887b866c8c0773d236e4eb2a8f7202
 call plug#end()
 
 "######### プラグインの設定 ###########
@@ -119,6 +135,7 @@ autocmd vimenter * NERDTree
 " indentの設定
 let g:js_indent_typescript = 1
 
+<<<<<<< HEAD
 " jedi-vim(python)
 set completeopt=menuone                        " 補完候補を呼び出すとき常にポップアップメニューを使う
 autocmd! User jedi-vim call s:jedivim_hook()   " vim-plugの遅延ロード呼び出し
@@ -128,6 +145,21 @@ function! s:jedivim_hook()              " jedi-vimを使うときだけ呼び出
 	let g:jedi#popup_on_dot           = 1 " ドット(.)を入力したとき自動で補完しない
 	let g:jedi#popup_select_first     = 0 " 補完候補の1番目を選択しない
 	let g:jedi#show_call_signatures   = 1 " 関数の引数表示を無効(ポップアップのバグを踏んだことがあるため)
+=======
+" quickrun
+nnoremap <F5> :<C-u>QuickRun<CR> 
+
+" jedi-vim
+set completeopt=menuone                        " 補完候補を呼び出すとき常にポップアップメニューを使う
+autocmd! User jedi-vim call s:jedivim_hook()   " vim-plugの遅延ロード呼び出し
+function! s:jedivim_hook()              " jedi-vimを使うときだけ呼び出す処理を関数化
+	let g:jedi#force_py_version = 3
+	let g:jedi#auto_initialization    = 0 " 自動で実行される初期化処理を無効
+	let g:jedi#auto_vim_configuration = 0 " 'completeopt' オプションを上書きしない
+	" let g:jedi#popup_on_dot           = 0 " ドット(.)を入力したとき自動で補完しない
+	let g:jedi#popup_select_first     = 0 " 補完候補の1番目を選択しない
+	" let g:jedi#show_call_signatures   = 0 " 関数の引数表示を無効(ポップアップのバグを踏んだことがあるため)
+>>>>>>> b1214acf8c887b866c8c0773d236e4eb2a8f7202
 	autocmd FileType python setlocal omnifunc=jedi#completions   " 補完エンジンはjediを使う
 endfunction
 
