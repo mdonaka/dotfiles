@@ -139,10 +139,11 @@ function! s:jedivim_hook()              " jedi-vimを使うときだけ呼び出
 	let g:jedi#popup_on_dot           = 1 " ドット(.)を入力したとき自動で補完しない
 	let g:jedi#popup_select_first     = 0 " 補完候補の1番目を選択しない
 	let g:jedi#show_call_signatures   = 1 " 関数の引数表示を無効(ポップアップのバグを踏んだことがあるため)
-" quickrun
-nnoremap <F5> :<C-u>QuickRun<CR> 
 	autocmd FileType python setlocal omnifunc=jedi#completions   " 補完エンジンはjediを使う
 endfunction
+
+" quickrun
+nnoremap <F5> :<C-u>QuickRun<CR> 
 
 "######### C++設定 ###########
 autocmd FileType cpp ClangFormatAutoEnable
