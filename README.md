@@ -1,8 +1,10 @@
 # dotfiles
+
 ## memo for me
 - ln -sf ~/dotfiles/.vimrc ~/.vimrc
 - ln -sf ~/dotfiles/.vim ~/.vim
 </li>
+
 ## shortcut key
 <dl>
   <dt>&lt;Space&gt;w</dt>
@@ -16,7 +18,9 @@
   <dt>&lt;Ctrl&gt;e</dt>
     <dd>NERDTree toggle</dd>
 </dl>
+
 ## programming langage
+
 ### C++
 <dl>
   <dt>vim-clang-format</dt>
@@ -25,12 +29,15 @@
   <dt>SingleCompile</dt>
   <dt>vim-hier</dt>
 </dl>
+
 ### TypeScript
+
 <dl>
   <dt>typescript-vim</dt>
   <dt>javascript-libraries-syntax</dt>
   <dt>vim-js-indent</dt>
 </dl>
+
 ### python3
 <dl>
   <dt>jedi-vim</dt>
