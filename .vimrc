@@ -142,6 +142,13 @@ function! s:jedivim_hook()              " jedi-vimを使うときだけ呼び出
 	autocmd FileType python setlocal omnifunc=jedi#completions   " 補完エンジンはjediを使う
 endfunction
 
+" autopep8
+" Shift + F でautopep自動修正
+nnoremap <S-f> :call Autopep8()<CR>
+"
+" 自動保存
+ autocmd BufWrite *.{py} :call Autopep8()
+
 " quickrun
 nnoremap <F5> :<C-u>QuickRun<CR> 
 
