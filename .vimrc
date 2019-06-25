@@ -103,7 +103,7 @@ call plug#end()
 
 "######### プラグインの設定 ###########
 " clang
-let g:clang_exec = 'clang++'
+let g:clang_exec = '/usr/bin/g++-9'
 let g:clang_c_options = '-std=c11'
 let g:clang_cpp_options = '-std=c++1z -pedantic-errors'
 let g:clang_format_auto = 1
