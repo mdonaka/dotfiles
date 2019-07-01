@@ -89,6 +89,7 @@ Plug 'jceb/vim-hier'
 Plug 'leafgarland/typescript-vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'jason0x43/vim-js-indent'
+Plug 'posva/vim-vue'
 " 補完
 " Plug 'clausreinke/typescript-tools'
 
@@ -145,9 +146,12 @@ endfunction
 " autopep8
 " Shift + F でautopep自動修正
 nnoremap <S-f> :call Autopep8()<CR>
-"
+
+" vim-vue
+autocmd FileType vue syntax sync fromstart
+
 " 自動保存
- autocmd BufWrite *.{py} :call Autopep8()
+" autocmd BufWrite *.{py} :call Autopep8()
 
 " quickrun
 nnoremap <F5> :<C-u>QuickRun<CR> 
