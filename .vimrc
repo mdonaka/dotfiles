@@ -90,6 +90,10 @@ Plug 'leafgarland/typescript-vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'jason0x43/vim-js-indent'
 Plug 'posva/vim-vue'
+
+" html
+Plug 'mattn/emmet-vim'
+
 " 補完
 " Plug 'clausreinke/typescript-tools'
 
@@ -149,6 +153,9 @@ nnoremap <S-f> :call Autopep8()<CR>
 
 " vim-vue
 autocmd FileType vue syntax sync fromstart
+
+" html
+let g:user_emmet_leader_key='<c-m>'
 
 " 自動保存
 " autocmd BufWrite *.{py} :call Autopep8()
