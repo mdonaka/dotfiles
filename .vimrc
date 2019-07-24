@@ -92,7 +92,7 @@ Plug 'jason0x43/vim-js-indent'
 Plug 'posva/vim-vue'
 
 " html
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
 " 補完
 " Plug 'clausreinke/typescript-tools'
