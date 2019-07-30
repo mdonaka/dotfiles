@@ -42,6 +42,9 @@ nnoremap S= <C-w>-
 " 新しいウインドウを右に開く
 set splitright
 
+" 対応括弧の色付け
+hi MatchParen ctermfg=LightGreen ctermbg=blue
+
 " 保存終了の簡易化
 nnoremap <Space>w :<C-u>write<CR> 
 nnoremap <Space>q :<C-u>quit<CR> 
@@ -94,6 +97,9 @@ Plug 'posva/vim-vue'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/html5.vim'
 Plug 'cakebaker/scss-syntax.vim'
+=======
+" Plug 'mattn/emmet-vim'
+>>>>>>> feature/vim
 
 " 補完
 " Plug 'clausreinke/typescript-tools'
