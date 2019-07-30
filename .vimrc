@@ -97,9 +97,6 @@ Plug 'posva/vim-vue'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/html5.vim'
 Plug 'cakebaker/scss-syntax.vim'
-=======
-" Plug 'mattn/emmet-vim'
->>>>>>> feature/vim
 
 " 補完
 " Plug 'clausreinke/typescript-tools'
