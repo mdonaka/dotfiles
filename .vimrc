@@ -61,6 +61,8 @@ set belloff=all
 
 "######### プラグイン管理 ###########
 call plug#begin('~/.vim/plugged')
+" 非同期処理
+Plug 'Shougo/vimproc.vim'
 
 " ディレクトリの表示
 Plug 'scrooloose/nerdtree'
@@ -76,10 +78,6 @@ Plug 'thinca/vim-quickrun'
 Plug 'kana/vim-operator-user'
 " C言語系のformat
 Plug 'rhysd/vim-clang-format'
-" C言語系の自動補完
-Plug 'justmao945/vim-clang'
-Plug 'Shougo/vimproc.vim'
-Plug 'Shougo/neoinclude.vim'
 " C言語便利ツール
 Plug 'vim-scripts/SingleCompile'
 Plug 'jceb/vim-hier'
@@ -92,7 +90,10 @@ Plug 'jason0x43/vim-js-indent'
 Plug 'posva/vim-vue'
 
 " html
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim' " 改行が遅くなる
+Plug 'hail2u/vim-css3-syntax'
+Plug 'othree/html5.vim'
+Plug 'cakebaker/scss-syntax.vim'
 
 " 補完
 " Plug 'clausreinke/typescript-tools'
