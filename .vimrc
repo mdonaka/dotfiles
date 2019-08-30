@@ -108,6 +108,9 @@ Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'w0rp/ale'
 Plug 'tell-k/vim-autopep8'
 
+" Vim
+Plug 'lervag/vimtex'
+
 call plug#end()
 
 "######### プラグインの設定 ###########
@@ -166,6 +169,12 @@ let g:user_emmet_leader_key='<c-m>'
 
 " quickrun
 nnoremap <F5> :<C-u>QuickRun<CR> 
+
+" vimtex
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.tex = g:vimtex#re#neocomplete
 
 "######### C++設定 ###########
 autocmd FileType cpp ClangFormatAutoEnable
