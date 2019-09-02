@@ -161,7 +161,7 @@ endfunction
 nnoremap <S-f> :call Autopep8()<CR>
 
 " 強化indentの追加，fold機能の追加
-autocmd FileType python BracelessEnable +indent +fold +highlight
+autocmd FileType python BracelessEnable +indent +fold
 
 " vim-vue
 autocmd FileType vue syntax sync fromstart
