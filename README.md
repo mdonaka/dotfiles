@@ -25,8 +25,6 @@
 ### C++
 <dl>
   <dt>vim-clang-format</dt>
-  <dt>vim-clang</dt>
-  <dt>neoinclude</dt>
   <dt>SingleCompile</dt>
   <dt>vim-hier</dt>
 </dl>
@@ -44,6 +42,21 @@
   <dt>jedi-vim</dt>
   <dt>ale</dt>
   <dt>vim-autopep8</dt>
+  <dt>braceless</dt>
+</dl>
+
+## markdown
+
+### HTML
+<dl>
+  <dt>hail2u/vim-css3-syntax</dt>
+  <dt>othree/html5.vim</dt>
+  <dt>cakebaker/scss-syntax.vim</dt>
+</dl>
+
+### LaTex
+<dl>
+  <dt>vimtex</dt>
 </dl>
 
 ## vim-plug
