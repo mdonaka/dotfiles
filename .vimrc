@@ -108,6 +108,7 @@ Plug 'davidhalter/jedi-vim', {'for': 'python'}
 " Plug 'nvie/vim-flake8',{'filetypes':'python'}
 Plug 'w0rp/ale'
 Plug 'tell-k/vim-autopep8'
+Plug 'tweekmonster/braceless.vim'
 
 " Vim
 Plug 'lervag/vimtex'
@@ -158,6 +159,9 @@ endfunction
 " autopep8
 " Shift + F でautopep自動修正
 nnoremap <S-f> :call Autopep8()<CR>
+
+" 強化indentの追加，fold機能の追加
+autocmd FileType python BracelessEnable +indent +fold +highlight
 
 " vim-vue
 autocmd FileType vue syntax sync fromstart
