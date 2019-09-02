@@ -1,8 +1,9 @@
 inoremap jj <Esc>
 "######### 表示設定 ###########
 " カーソル位置の記憶
-au BufWritePost * mkview
+autocmd BufWritePost * mkview
 autocmd BufReadPost * loadview
+set viewoptions-=options
 " インデント幅
 set tabstop=2
 set shiftwidth=2
