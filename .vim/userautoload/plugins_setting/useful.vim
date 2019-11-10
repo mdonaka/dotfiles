@@ -9,3 +9,8 @@ autocmd vimenter * NERDTree
 "### quickrun ###
 " キーの設定
 nnoremap <F5> :<C-u>QuickRun<CR> 
+
+
+"### neocomplete ###
+" 補完候補を呼び出すとき常にポップアップメニューを使う
+set completeopt=menuone
