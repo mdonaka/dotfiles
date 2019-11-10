@@ -94,18 +94,13 @@ Plug 'jason0x43/vim-js-indent'
 Plug 'posva/vim-vue'
 
 " html
-" Plug 'mattn/emmet-vim' " 改行が遅くなる
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/html5.vim'
 Plug 'cakebaker/scss-syntax.vim'
 
-" 補完
-" Plug 'clausreinke/typescript-tools'
 
 " Python
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
-" Plug 'scrooloose/syntastic'
-" Plug 'nvie/vim-flake8',{'filetypes':'python'}
 Plug 'w0rp/ale'
 Plug 'tell-k/vim-autopep8'
 Plug 'tweekmonster/braceless.vim'
@@ -168,9 +163,6 @@ autocmd FileType vue syntax sync fromstart
 
 " html
 let g:user_emmet_leader_key='<c-m>'
-
-" 自動保存
-" autocmd BufWrite *.{py} :call Autopep8()
 
 " quickrun
 nnoremap <F5> :<C-u>QuickRun<CR> 
