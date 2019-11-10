@@ -1,4 +1,5 @@
 
 " 補完
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', {'for', 'plaintex'}
+
 
