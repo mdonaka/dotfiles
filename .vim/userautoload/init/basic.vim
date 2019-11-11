@@ -54,4 +54,6 @@ set splitright
 autocmd BufWritePost * mkview
 autocmd BufReadPost * loadview
 set viewoptions-=options
+" ヤンク <-> クリップボード
+set clipboard=unnamedplus
 
