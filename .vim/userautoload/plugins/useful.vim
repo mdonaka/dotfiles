@@ -17,3 +17,11 @@ Plug 'thinca/vim-quickrun'
 " オペレータを定義する(これに依存するプラグイン用)
 Plug 'kana/vim-operator-user'
 
+" 汎用的な構文チェック
+Plug 'w0rp/ale'
+
+" スニペットの補完
+Plug 'Shougo/neosnippet'
+
+" スニペット集
+Plug 'Shougo/neosnippet-snippets'
