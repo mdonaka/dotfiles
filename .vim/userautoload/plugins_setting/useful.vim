@@ -25,13 +25,12 @@ let g:neocomplete#enable_auto_delimiter = 1
 " 1文字目の入力から補完のポップアップを表示
 let g:neocomplete#auto_completion_start_length = 1
 " バックスペースで補完のポップアップを閉じる
-inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
-"### neosnipet ###
 " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定・・・・・・②
-imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
+imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-y>" : "\<CR>"
 " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
-imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 "### ale ###
 " 保存時に自動整形
