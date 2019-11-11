@@ -3,6 +3,8 @@
 Plug 'Shougo/vimproc.vim'
 
 " ディレクトリツリーの表示
+Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/nerd-fonts'
 Plug 'scrooloose/nerdtree'
 
 " 括弧の自動補完
