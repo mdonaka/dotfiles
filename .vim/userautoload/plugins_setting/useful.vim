@@ -32,7 +32,37 @@ imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" :
 " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
 imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
+
 "### ale ###
 " 保存時に自動整形
 let g:ale_fix_on_save = 1
+" 常時lintのon
+let g:ale_lint_on_text_changed = 1
+" エディタがエラー行追加に左にずれるのを防ぐ
+let g:ale_sign_column_always = 1
 
+
+"### lightline ### 
+let g:lightline = {
+\ 'colorscheme': 'Solarized Light',
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ],
+\             [ 'readonly', 'filename', 'modified' ],
+\             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ] ],
+\ },
+\ }
+
+
+"### lightline-ale ###
+let g:lightline.component_expand = {
+\  'linter_checking': 'lightline#ale#checking',
+\  'linter_warnings': 'lightline#ale#warnings',
+\  'linter_errors': 'lightline#ale#errors',
+\  'linter_ok': 'lightline#ale#ok',
+\ }
+let g:lightline.component_type = {
+\     'linter_checking': 'left',
+\     'linter_warnings': 'warning',
+\     'linter_errors': 'error',
+\     'linter_ok': 'left',
+\ }

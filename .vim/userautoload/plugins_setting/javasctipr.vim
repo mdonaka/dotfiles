@@ -9,12 +9,14 @@ function! JavascriptSetting()
 	let g:jscomplete_use = ['dom', 'moz', 'es6th']
 
 	"##### ale #####
-	" 常時lintのoff
-	let g:ale_lint_on_text_changed = 1
 	" 補完
 	let g:ale_fixers['javascript'] = ['eslint']
 	" lint
 	let g:ale_linters['javascript'] = ['eslint']
+
+	"##### vim-json #####
+	" 変な""を消す
+	let g:vim_json_syntax_conceal = 0
 
 endfunction
 

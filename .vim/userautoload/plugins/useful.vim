@@ -20,8 +20,15 @@ Plug 'kana/vim-operator-user'
 " 汎用的な構文チェック
 Plug 'w0rp/ale'
 
+" statuslineをおしゃれにする
+Plug 'itchyny/lightline.vim'
+
+" statuslineにaleをのっける
+Plug 'maximbaz/lightline-ale'
+
 " スニペットの補完
 Plug 'Shougo/neosnippet'
 
 " スニペット集
 Plug 'Shougo/neosnippet-snippets'
+
