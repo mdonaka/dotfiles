@@ -2,8 +2,11 @@
 " javascriptのsyntax
 Plug 'othree/yajs.vim', {'for': 'javascript'}
 
-" javascriptの補完(微妙？)
+" javascriptの補完
 Plug 'mattn/jscomplete-vim', {'for': 'javascript'}
+
+" javascriptの補完
+Plug 'elzr/vim-json', {'for': 'javascript'}
 
 " typescriptのsyntax
 Plug 'leafgarland/typescript-vim', {'for': ['vue', 'typescript']}
