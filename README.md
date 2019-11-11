@@ -7,11 +7,13 @@
 
 ./.vim/plugged/nerd-fonts/install.sh SourceCodePro
 
-sudo apt install vim-gnome (if -lua)
-
 ## install vim (for ubuntu18.04)
-sudo apt-get install software-properties-common
+sudo apt install software-properties-common
+
 sudo add-apt-repository ppa:jonathonf/vim
+
+sudo apt update
+
 sudo apt install vim
 
 ## shortcut key
