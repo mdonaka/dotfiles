@@ -48,10 +48,13 @@ hi MatchParen ctermfg=LightGreen ctermbg=blue
 
 
 "##### その他 #####
-" 新しいウインドウを右に開く
+" 新しいウインドウを右or下に開く
 set splitright
+set splitbelow
 " カーソル位置の記憶
 autocmd BufWritePost * mkview
 autocmd BufReadPost * loadview
 set viewoptions-=options
+" ヤンク <-> クリップボード
+set clipboard=unnamedplus
 

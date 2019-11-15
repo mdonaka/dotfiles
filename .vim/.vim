@@ -1,0 +1,1 @@
+/home/mdo/dotfiles/.vim
