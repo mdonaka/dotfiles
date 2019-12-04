@@ -27,3 +27,6 @@ sudo apt install vim
   <dt>&lt;Ctrl&gt;e</dt>
     <dd>NERDTree toggle</dd>
 </dl>
+
+## apt
+clang-format
