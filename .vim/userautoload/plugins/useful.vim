@@ -7,6 +7,7 @@ Plug 'scrooloose/nerdtree'
 
 " 括弧の自動補完
 " Plug 'cohama/lexima.vim'
+Plug 'Townk/Vim-autoclose'
 
 " 汎用的な自動補完
 Plug 'Shougo/neocomplete'
