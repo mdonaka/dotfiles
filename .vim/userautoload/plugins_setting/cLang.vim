@@ -6,20 +6,24 @@ function! CppSetting()
 	"### vim-clang-format ###
 	let g:clang_exec = '/usr/bin/g++-9'
 	let g:clang_c_options = '-std=c11'
-	let g:clang_cpp_options = '-std=c++1z -pedantic-errors'
+	let g:clang_cpp_options = '-std=c++2a -pedantic-errors -fconcepts'
 	let g:clang_format_auto = 1
 	let g:clang_format_style = 'Google'
 	let g:clang_check_syntax_auto = 1
 	ClangFormatAutoEnable
 
+	"### QuickRun ###
+	let g:quickrun_config = {
+	\	'cpp':{
+	\		'command': 'g++-9',
+	\		'cmdopt': '-std=c++2a -O2 -fconcepts'
+	\	}
+	\}
 
-	"### vim-hier ###
-	" エラーを赤字の波線で
-	execute "highlight qf_error_ucurl gui=undercurl guisp=Red"
-	let g:hier_highlight_group_qf  = "qf_error_ucurl"
-	" 警告を青字の波線で
-	execute "highlight qf_warning_ucurl gui=undercurl guisp=Blue"
-	let g:hier_highlight_group_qfw = "qf_warning_ucurl"
+	"### ale ###
+	let g:ale_linters['cpp'] = ['g++']
+	let g:ale_cpp_gcc_executable = 'g++-9'
+	let g:ale_cpp_gcc_options = '-std=c++2a -fconcepts -Wall -I../includes'
 
 	" ### vim-cpp-enhanced-highlight ###
 	let g:cpp_class_scope_highlight = 1
