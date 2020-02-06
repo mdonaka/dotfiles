@@ -10,7 +10,7 @@ function! PythonSetting()
 	" flake8をLinterとして登録
 	let g:ale_linters['python'] = ['flake8', 'mypy']
 	" 各ツールをFixerとして登録
-	let g:ale_fixers['python'] = ['autopep8', 'black', 'isort']
+	let g:ale_fixers['python'] = ['black','autopep8' 'isort']
 
 	"### jedi-vim ###
 	" 自動で実行される初期化処理を有効
