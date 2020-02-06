@@ -14,5 +14,6 @@ nnoremap S= <C-w>-
 " 保存終了の簡易化
 nnoremap <Space>w :<C-u>write<CR> 
 nnoremap <Space>q :<C-u>quit<CR> 
-
+" 文末移動
+nnoremap 4 <End>
 
