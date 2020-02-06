@@ -2,15 +2,15 @@
 autocmd! FileType python call PythonSetting()
 function! PythonSetting()
 
-	"### vim-autopep8 ###
-	" Shift + F でautopep自動修正
-	nnoremap <S-f> :call Autopep8()<CR>
-
-
 	"### braceless ###
 	" 強化indentの追加，fold機能の追加
 	autocmd FileType python BracelessEnable +indent +fold
 
+	"### ale ###
+	" flake8をLinterとして登録
+	let g:ale_linters['python'] = ['flake8', 'mypy']
+	" 各ツールをFixerとして登録
+	let g:ale_fixers['python'] = ['black','autopep8' 'isort']
 
 	"### jedi-vim ###
 	" 自動で実行される初期化処理を有効
