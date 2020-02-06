@@ -17,3 +17,5 @@ Plug 'jason0x43/vim-js-indent', {'for': ['vue', 'typescript']}
 " vueのsyntax
 Plug 'posva/vim-vue', {'for': 'vue'}
 
+" coffee-scriptのsyntax(他の事もできるが設定が必要)
+Plug 'kchmck/vim-coffee-script'
