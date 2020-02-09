@@ -40,6 +40,8 @@ let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 1
 " エディタがエラー行追加に左にずれるのを防ぐ
 let g:ale_sign_column_always = 1
+" linterを表示
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 
 "### lightline ### 
