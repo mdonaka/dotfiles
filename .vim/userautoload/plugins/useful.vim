@@ -4,6 +4,7 @@ Plug 'Shougo/vimproc.vim'
 
 " ディレクトリツリーの表示
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " 括弧の自動補完
 " Plug 'cohama/lexima.vim'
