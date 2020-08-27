@@ -53,7 +53,7 @@ set splitright
 set splitbelow
 " カーソル位置の記憶
 autocmd BufWritePost * mkview
-autocmd BufReadPost * loadview
+autocmd BufReadPost * silent! loadview
 set viewoptions-=options
 " ヤンク <-> クリップボード
 set clipboard=unnamedplus
