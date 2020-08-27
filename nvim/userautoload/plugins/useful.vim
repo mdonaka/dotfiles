@@ -11,7 +11,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Townk/Vim-autoclose'
 
 " 汎用的な自動補完
-Plug 'Shougo/neocomplete'
+Plug 'Shougo/deoplete.nvim'
 
 " vim中に何かしらを実行する
 Plug 'thinca/vim-quickrun'

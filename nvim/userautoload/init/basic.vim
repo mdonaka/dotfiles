@@ -57,4 +57,5 @@ autocmd BufReadPost * silent! loadview
 set viewoptions-=options
 " ヤンク <-> クリップボード
 set clipboard=unnamedplus
-
+" Python2のpath
+let g:python_host_prog=expand("$HOME/.pyenv/shims/python2")
