@@ -1,6 +1,7 @@
 
 " 補完
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+" Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'zchee/deoplete-jedi', {'for': 'python'}
 
 " 自動整形
 " Plug 'tell-k/vim-autopep8', {'for': 'python'}
