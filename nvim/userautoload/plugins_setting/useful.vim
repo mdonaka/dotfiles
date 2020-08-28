@@ -3,7 +3,12 @@
 " キーの設定
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " vim開始時に開く
-autocmd vimenter * NERDTree
+function s:MoveToFileAtStart()
+  call feedkeys("\<C-w>l")
+  call feedkeys("\<space>q")
+endfunction
+autocmd vimenter * NERDTree | call s:MoveToFileAtStart()
+set buftype=
 
 
 "### quickrun ###
