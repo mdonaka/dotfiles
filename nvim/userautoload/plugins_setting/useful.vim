@@ -38,8 +38,11 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 
 "### lightline ### 
+if !has('gui_running')
+  set t_Co=256
+endif
 let g:lightline = {
-\ 'colorscheme': 'Solarized Light',
+\ 'colorscheme': 'solarized',
 \ 'active': {
 \   'left': [ [ 'mode', 'paste' ],
 \             [ 'readonly', 'filename', 'modified' ],
