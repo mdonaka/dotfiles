@@ -14,7 +14,7 @@ nnoremap <F5> :<C-u>QuickRun<CR>
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option({
 \ 'auto_complete_popup': 'auto',
-\ 'auto_complete_delay': 200,
+\ 'auto_complete_delay': 0,
 \ 'omni_patterns': {}
 \ })
 inoremap <expr><tab> pumvisible() ? "\<C-n>" :
@@ -23,6 +23,8 @@ inoremap <expr><tab> pumvisible() ? "\<C-n>" :
 imap <expr><CR>
 \ (pumvisible() && neosnippet#expandable()) ? "\<Plug>(neosnippet_expand_or_jump)" : "\<CR>"
 
+"### snippet ###
+set completeopt-=preview
 
 "### ale ###
 " 保存時に自動整形
