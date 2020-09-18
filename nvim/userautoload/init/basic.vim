@@ -38,7 +38,8 @@ set incsearch
 
 "##### 色関係 #####
 " 全体の設定
-colorscheme molokai
+" colorscheme molokai
+colorscheme adventurous
 let g:molokai_original=1
 let g:rehash=1
 " 背景の設定
