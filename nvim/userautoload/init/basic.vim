@@ -38,9 +38,16 @@ set incsearch
 
 "##### 色関係 #####
 " 全体の設定
-" colorscheme molokai
-colorscheme wombat256grf
-let g:molokai_original=1
+function! ColorChanger(num)
+	if a:num == 0
+		colorscheme molokai
+		let g:molokai_original=1
+	else
+		colorscheme wombat256grf
+	endif
+endfunction
+call ColorChanger(system("echo $((RANDOM%+2))"))
+
 let g:rehash=1
 " 背景の設定
 set background=dark
