@@ -42,6 +42,10 @@ function! ColorChanger(num)
 	if a:num == 0
 		colorscheme molokai
 		let g:molokai_original=1
+	elseif a:num == 1
+		colorscheme wombat256grf
+	elseif a:num == 2
+		colorscheme miramare
 	else
 		colorscheme wombat256grf
 	endif
