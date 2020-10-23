@@ -50,7 +50,7 @@ function! ColorChanger(num)
 		colorscheme wombat256grf
 	endif
 endfunction
-call ColorChanger(system("echo $((RANDOM%+2))"))
+call ColorChanger(system("echo $((RANDOM%+3))"))
 
 let g:rehash=1
 " 背景の設定
