@@ -45,16 +45,18 @@ function! ColorChanger(num)
 	elseif a:num == 1
 		colorscheme wombat256grf
 	elseif a:num == 2
-		colorscheme miramare
+		colorscheme nirvana
+	elseif a:num == 3
+		colorscheme pulumi
 	else
 		colorscheme wombat256grf
 	endif
 endfunction
-call ColorChanger(system("echo $((RANDOM%+3))"))
+call ColorChanger(system("echo $((RANDOM%+4))"))
 
 let g:rehash=1
 " 背景の設定
-set background=dark
+" set background=dark
 " 対応括弧の色付け
 hi MatchParen ctermfg=LightGreen ctermbg=blue
 
