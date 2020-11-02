@@ -52,11 +52,11 @@ function! ColorChanger(num)
 		colorscheme wombat256grf
 	endif
 endfunction
-call ColorChanger(system("echo $((RANDOM%+4))"))
+
+let s:colorSize = system("ls -1 ~/.config/nvim/colors | wc -l")
+call ColorChanger(system('echo $((RANDOM%+' . s:colorSize . '))'))
 
 let g:rehash=1
-" 背景の設定
-" set background=dark
 " 対応括弧の色付け
 hi MatchParen ctermfg=LightGreen ctermbg=blue
 
