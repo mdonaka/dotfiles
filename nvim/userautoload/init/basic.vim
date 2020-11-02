@@ -37,22 +37,13 @@ set incsearch
 
 
 "##### 色関係 #####
-" 全体の設定
+" 色変更の関数
+let s:colorList = split(system("ls ~/.config/nvim/colors/"), "\n")
 function! ColorChanger(num)
-	if a:num == 0
-		colorscheme molokai
-		let g:molokai_original=1
-	elseif a:num == 1
-		colorscheme wombat256grf
-	elseif a:num == 2
-		colorscheme nirvana
-	elseif a:num == 3
-		colorscheme pulumi
-	else
-		colorscheme wombat256grf
-	endif
+	let s:colorName = split(s:colorList[a:num], ".vim")[0]
+	exe("colorscheme " . s:colorName)
 endfunction
-
+" 起動時の色をランダム変更
 let s:colorSize = system("ls -1 ~/.config/nvim/colors | wc -l")
 call ColorChanger(system('echo $((RANDOM%+' . s:colorSize . '))'))
 
