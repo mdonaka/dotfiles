@@ -41,6 +41,7 @@ set incsearch
 let s:colorList = split(system("ls ~/.config/nvim/colors/"), "\n")
 function! ColorChanger(num)
 	let s:colorName = split(s:colorList[a:num], ".vim")[0]
+	echo "change the color to [" . s:colorName . "]"
 	exe("colorscheme " . s:colorName)
 endfunction
 " 起動時の色をランダム変更
