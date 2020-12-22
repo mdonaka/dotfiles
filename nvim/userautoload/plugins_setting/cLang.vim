@@ -33,4 +33,8 @@ function! CppSetting()
 	let g:cpp_experimental_simple_template_highlight = 1
 	let g:cpp_concepts_highlight = 1
 
+	" ### deoplete-clang ###
+	let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-10/lib/libclang-10.so.1'
+	let g:deoplete#sources#clang#clang_header='/usr/include/clang'
+
 endfunction
