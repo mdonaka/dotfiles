@@ -1,6 +1,6 @@
 
 # terminal
-PS1="\[\e[1;35m\]\u@\[\e[1;34m\]\W$\[\e[m\] "
+PS1="\[\e[1;32m\]\u@\[\e[1;36m\]\W$\[\e[m\] "
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
