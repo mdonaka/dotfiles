@@ -8,6 +8,7 @@ Plug 'scrooloose/nerdtree'
 " vimでgitをどうちゃらする
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " 括弧の自動補完
 " Plug 'cohama/lexima.vim'
