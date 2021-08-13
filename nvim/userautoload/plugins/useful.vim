@@ -6,7 +6,7 @@ Plug 'Shougo/vimproc.vim'
 Plug 'scrooloose/nerdtree'
 
 " vimでgitをどうちゃらする
-" Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
