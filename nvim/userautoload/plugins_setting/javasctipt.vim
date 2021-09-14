@@ -25,9 +25,11 @@ autocmd! FileType typescript call TypescriptSetting()
 autocmd! FileType vue call TypescriptSetting()
 function! TypescriptSetting()
 
-	"### vim-js-indent ###
-	" typescriptのインデントをいい感じにする
-	let g:js_indent_typescript = 1
+	"##### ale #####
+	" 補完
+	let g:ale_fixers['typescript'] = ['tslint']
+	" lint
+	let g:ale_linters['typescript'] = ['tslint']
 
 endfunction
 
