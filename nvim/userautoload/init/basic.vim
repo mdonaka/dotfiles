@@ -21,7 +21,10 @@ set ruler
 syntax on
 " conceal対象文字を代理文字(スペース)に置換
 set conceallevel=1
-
+" タブ等を視覚的に分かりやすく
+set list
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
+hi SpecialKey ctermbg=None ctermfg=70 guibg=NONE guifg=None
 
 "##### 検索関係 #####
 " 検索結果ハイライト
