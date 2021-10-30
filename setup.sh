@@ -22,7 +22,7 @@ ln -sf ~/dotfiles/.update.sh ~/.update.sh
 
 # neovim
 # https://github.com/neovim/neovim
-sudo apt install neovim
+sudo apt install -y neovim
 ln -sf ~/dotfiles/nvim ~/.config/nvim
 # https://github.com/junegunn/vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -34,8 +34,6 @@ sudo apt update; sudo apt install -y make build-essential libssl-dev zlib1g-dev 
 	libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
 	libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-source .bashrc
-pyenv install 3.9.7
-pyenv install 2.7.18
-pyenv global 3.9.7 2.7.18
-pip3 install pynvim
+
+# bashrcを反映
+exec $SHELL -l
