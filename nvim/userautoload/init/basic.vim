@@ -68,3 +68,22 @@ set viewoptions-=options
 set clipboard=unnamedplus
 " Python2のpath
 let g:python_host_prog=expand("$HOME/.pyenv/shims/python2")
+" win32でクリップボード共有
+let uname = substitute(system('uname'),'\n','','')
+if uname == 'Linux'
+	let lines = readfile("/proc/version")
+	if lines[0] =~ "Microsoft"
+		let g:clipboard = {
+		    \   'name': 'myClipboard',
+		    \   'copy': {
+		    \      '+': 'win32yank.exe -i',
+		    \      '*': 'win32yank.exe -i',
+		    \    },
+		    \   'paste': {
+		    \      '+': 'win32yank.exe -o',
+		    \      '*': 'win32yank.exe -o',
+		    \   },
+		    \   'cache_enabled': 1,
+		    \ }
+	endif
+endif
