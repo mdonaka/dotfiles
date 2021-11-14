@@ -10,6 +10,10 @@ function! CppSetting()
 	let g:clang_format_auto = 1
 	let g:clang_format_style = 'Google'
 	let g:clang_check_syntax_auto = 1
+	let g:clang_format#style_options = {
+			\ "AllowShortBlocksOnASingleLine " : "Always",
+			\ "UseTab" : "Never"
+			\}
 	ClangFormatAutoEnable
 
 	"### QuickRun ###
