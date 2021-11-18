@@ -31,6 +31,9 @@ function! TypescriptSetting()
 	" lint
 	let g:ale_linters['typescript'] = ['tslint']
 
+	"#### nvim-typescript ####
+	"別OS使用時はまた追加する
+	let g:node_host_prog = '~/.nodebrew/current/lib/node_modules/neovim/bin/cli.js'
 endfunction
 
 
