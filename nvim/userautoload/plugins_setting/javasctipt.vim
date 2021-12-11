@@ -32,8 +32,18 @@ function! TypescriptSetting()
 	let g:ale_linters['typescript'] = ['tslint']
 
 	"#### nvim-typescript ####
-	"別OS使用時はまた追加する
-	let g:node_host_prog = '~/.nodebrew/current/lib/node_modules/neovim/bin/cli.js'
+	" WSL
+	let uname = substitute(system('uname'),'\n','','')
+	if uname == 'Linux'
+		let lines = readfile("/proc/version")
+		if lines[0] =~ "Microsoft"
+			let g:node_host_prog = '/usr/local/lib/node_modules/neovim/bin/cli.js'
+		endif
+	endif
+	" mac
+	if has("mac")
+		let g:node_host_prog = '~/.nodebrew/current/lib/node_modules/neovim/bin/cli.js'
+	endif
 endfunction
 
 

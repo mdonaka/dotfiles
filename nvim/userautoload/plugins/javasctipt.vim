@@ -18,7 +18,7 @@ Plug 'kchmck/vim-coffee-script'
 
 " syntax file for typescript
 Plug 'HerringtonDarkholme/yats.vim', {'for': 'typescript'}
-Plug 'mhartington/nvim-typescript', {'for': 'typescript', 'do': './install.sh'}
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 " For async completion
 Plug 'Shougo/deoplete.nvim', {'for': 'typescript'}
 " For Denite features
