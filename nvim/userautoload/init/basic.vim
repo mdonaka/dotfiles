@@ -37,7 +37,8 @@ set smartcase
 set wrapscan
 " 検索打ち込み中にhighlight
 set incsearch
-
+" vimgrepでquickfix-windowを開く
+autocmd QuickFixCmdPost *grep* cwindow
 
 "##### 色関係 #####
 " 色変更の関数

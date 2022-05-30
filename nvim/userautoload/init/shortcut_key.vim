@@ -16,4 +16,7 @@ nnoremap <Space>w :<C-u>write<CR>
 nnoremap <Space>q :<C-u>quit<CR> 
 " 文末移動
 nnoremap 4 <End>
-
+" vimgrepで前へ
+nnoremap [q :cprevious<CR>
+" vimgrepで次へ
+nnoremap ]q :cnext<CR>
