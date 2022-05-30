@@ -88,3 +88,12 @@ if uname == 'Linux'
 		    \ }
 	endif
 endif
+
+"#### ターミナルモード
+" 下に開く
+if has('nvim')
+  command! -nargs=* Term split | terminal <args>
+  command! -nargs=* Termv vsplit | terminal <args>
+endif
+" インサートモードで開く
+autocmd TermOpen * startinsert
