@@ -3,4 +3,5 @@
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
 " 補完
-Plug 'sebastianmarkow/deoplete-rust', {'for': 'rust'}
+" Plug 'sebastianmarkow/deoplete-rust', {'for': 'rust'}
+Plug 'neoclide/coc.nvim', {'for': 'rust', 'branch': 'release'}
