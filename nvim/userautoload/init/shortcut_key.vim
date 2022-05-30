@@ -1,5 +1,6 @@
 "##### ノーマルモードへの切り替え簡略化 #####
 inoremap jj <Esc>
+tnoremap jj <C-\><C-n>
 
 "##### ショートカットキーの登録 #####
 " window分割関係(移動，拡大縮小)
@@ -16,6 +17,7 @@ nnoremap <Space>w :<C-u>write<CR>
 nnoremap <Space>q :<C-u>quit<CR> 
 " 文末移動
 nnoremap 4 <End>
+vnoremap 4 <End>
 " vimgrepで前へ
 nnoremap [q :cprevious<CR>
 " vimgrepで次へ
