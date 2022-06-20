@@ -17,6 +17,7 @@ echo "set bell-style none" >> ~/.inputrc
 cat .bashrc >> ~/.bashrc
 
 # update
+sudo add-apt-repository ppa:neovim-ppa/stable
 ln -sf ~/dotfiles/.update.sh ~/.update.sh
 ~/.update.sh
 
