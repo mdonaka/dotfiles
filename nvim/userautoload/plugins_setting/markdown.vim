@@ -3,7 +3,8 @@ autocmd! FileType markdown call MarkdownSetting()
 function! MarkdownSetting()
 
 	" 自動折りたたみの無効化
-	let g:vim_markdown_folding_disabled = 1 
+	let g:vim_markdown_folding_disabled = 1
+	set foldmethod=manual
 
 	" プレビューを開く
 	" WSL
