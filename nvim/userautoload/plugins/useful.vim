@@ -38,3 +38,5 @@ Plug 'Shougo/neosnippet'
 " スニペット集
 Plug 'Shougo/neosnippet-snippets'
 
+" 複数行コメント
+Plug 'tpope/vim-commentary'
