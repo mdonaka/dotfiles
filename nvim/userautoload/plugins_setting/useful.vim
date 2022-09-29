@@ -69,3 +69,6 @@ let g:lightline.component_type = {
 \     'linter_errors': 'error',
 \     'linter_ok': 'left',
 \ }
+
+"### vim-commentary ###
+autocmd FileType cpp,hpp setlocal commentstring=//\%s
