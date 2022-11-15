@@ -45,9 +45,9 @@ autocmd QuickFixCmdPost *grep* cwindow
 " 色変更の関数
 let s:colorList = split(system("ls ~/.config/nvim/colors/"), "\n")
 function! ColorChanger(num)
-	let s:colorName = split(s:colorList[a:num], ".vim")[0]
-	echo "change the color to [" . s:colorName . "]"
-	exe("colorscheme " . s:colorName)
+  let s:colorName = split(s:colorList[a:num], ".vim")[0]
+  echo "change the color to [" . s:colorName . "]"
+  exe("colorscheme " . s:colorName)
 endfunction
 " 起動時の色をランダム変更
 let s:colorSize = system("ls -1 ~/.config/nvim/colors | wc -l")
@@ -73,21 +73,21 @@ let g:python_host_prog=expand("$HOME/.pyenv/shims/python2")
 " win32でクリップボード共有
 let uname = substitute(system('uname'),'\n','','')
 if uname == 'Linux'
-	let lines = readfile("/proc/version")
-	if lines[0] =~ "Microsoft"
-		let g:clipboard = {
-		    \   'name': 'myClipboard',
-		    \   'copy': {
-		    \      '+': 'win32yank.exe -i',
-		    \      '*': 'win32yank.exe -i',
-		    \    },
-		    \   'paste': {
-		    \      '+': 'win32yank.exe -o',
-		    \      '*': 'win32yank.exe -o',
-		    \   },
-		    \   'cache_enabled': 1,
-		    \ }
-	endif
+  let lines = readfile("/proc/version")
+  if lines[0] =~ "Microsoft"
+    let g:clipboard = {
+        \   'name': 'myClipboard',
+        \   'copy': {
+        \      '+': 'win32yank.exe -i',
+        \      '*': 'win32yank.exe -i',
+        \    },
+        \   'paste': {
+        \      '+': 'win32yank.exe -o',
+        \      '*': 'win32yank.exe -o',
+        \   },
+        \   'cache_enabled': 1,
+        \ }
+  endif
 endif
 
 "#### ターミナルモード
