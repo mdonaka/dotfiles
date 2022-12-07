@@ -26,8 +26,8 @@ function! CppSetting()
 
   "### ale ###
   let g:ale_linters['cpp'] = ['g++']
-  let g:ale_cpp_gcc_executable = 'g++'
-  let g:ale_cpp_gcc_options = '-std=c++2a -fconcepts -Wall -I../includes'
+  let g:ale_cpp_cc_executable = 'g++'
+  let g:ale_cpp_cc_options = '-std=c++2a -Wall -I../includes'
 
   " ### vim-cpp-enhanced-highlight ###
   let g:cpp_class_scope_highlight = 1
