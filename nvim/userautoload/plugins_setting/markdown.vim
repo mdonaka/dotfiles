@@ -10,14 +10,13 @@ function! MarkdownSetting()
   " WSL
   let uname = substitute(system('uname'),'\n','','')
   if uname == 'Linux'
-    let lines = readfile("/proc/version")
-    if lines[0] =~ "Microsoft"
-      let g:previm_open_cmd = 'firefox"'
-    endif
+    let g:previm_open_cmd = '/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe'
+    let g:previm_wsl_mode = 1
   endif
   " mac
   if has("mac")
     let g:previm_open_cmd = 'open -a "Google Chrome"'
+
   endif
 
   " F5でプレビューを開く(quickrunの設定を更新しているので注意)
