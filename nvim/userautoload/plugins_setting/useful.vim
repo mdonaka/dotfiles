@@ -1,18 +1,3 @@
-
-"### nerdtree ###
-" キーの設定
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-" vim開始時に開く
-function s:MoveToFileAtStart()
-  " 指定なしでvim開始時のno nameファイルを閉じる
-  " ファイル指定時の意図しない挙動により削除
-  " call feedkeys("\<C-w>l")
-  " call feedkeys("\<space>q")
-endfunction
-autocmd vimenter * NERDTree | call s:MoveToFileAtStart()
-set buftype=
-
-
 "### quickrun ###
 " キーの設定
 nnoremap <F5> :<C-u>QuickRun<CR> 
