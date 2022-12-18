@@ -2,9 +2,6 @@
 " 非同期処理
 Plug 'Shougo/vimproc.vim'
 
-" ディレクトリツリーの表示
-Plug 'scrooloose/nerdtree'
-
 " vimでgitをどうちゃらする
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
