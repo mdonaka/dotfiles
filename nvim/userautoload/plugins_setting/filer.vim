@@ -20,3 +20,10 @@ function! s:fern_settings() abort
   nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
 endfunction
 
+" font適用
+let g:fern#renderer = 'nerdfont'
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
