@@ -4,3 +4,4 @@ au BufRead,BufNewFile *.cson set ft=coffee
 au BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
 autocmd BufRead,BufNewFile *.md  set filetype=markdown
+autocmd BufRead,BufNewFile *.csv set filetype=csv
