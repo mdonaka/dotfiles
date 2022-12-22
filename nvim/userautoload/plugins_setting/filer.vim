@@ -53,3 +53,6 @@ augroup my-glyph-palette
   autocmd FileType fern call glyph_palette#apply()
   autocmd FileType nerdtree,startify call glyph_palette#apply()
 augroup END
+
+" ディレクトリの線を追加
+let g:fern#renderer#nerdfont#indent_markers = 1
