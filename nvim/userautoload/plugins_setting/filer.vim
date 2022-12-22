@@ -1,4 +1,30 @@
 
+" keymap変更
+function! FernInit() abort
+  nmap <buffer> r <Plug>(fern-action-reload)
+  nmap <buffer> H <Plug>(fern-action-hidden)
+
+  nmap <buffer> i <Plug>(fern-action-open:below)
+  nmap <buffer> I <Plug>(fern-action-open:right)
+  nmap <buffer> o <Plug>(fern-action-open-or-expand)
+  nmap <buffer> O <Plug>(fern-action-collapse)
+  nmap <buffer> l <Plug>(fern-action-enter)
+  nmap <buffer> h <Plug>(fern-action-leave)
+
+  nmap <buffer> C <Plug>(fern-action-clipboard-copy)
+  nmap <buffer> M <Plug>(fern-action-clipboard-move)
+  nmap <buffer> P <Plug>(fern-action-clipboard-paste)
+  nmap <buffer> D <Plug>(fern-action-remove)
+  nmap <buffer> - <Plug>(fern-action-mark:toggle)
+  nmap <buffer> = <Plug>(fern-action-mark:clear)
+
+  nmap <buffer> N <Plug>(fern-action-new-path=)
+endfunction
+augroup FernEvents
+  autocmd!
+  autocmd FileType fern call FernInit()
+augroup END
+let g:fern#disable_default_mappings = 1
 
 " <C-e>で起動
 nnoremap <C-e> :Fern . -reveal=% -drawer -toggle -width=27<CR>
