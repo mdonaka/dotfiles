@@ -1,5 +1,6 @@
 
 " keymap変更
+let g:fern#disable_default_mappings = 1
 function! FernInit() abort
   nmap <buffer> r <Plug>(fern-action-reload)
   nmap <buffer> H <Plug>(fern-action-hidden)
@@ -17,14 +18,16 @@ function! FernInit() abort
   nmap <buffer> D <Plug>(fern-action-remove)
   nmap <buffer> - <Plug>(fern-action-mark:toggle)
   nmap <buffer> = <Plug>(fern-action-mark:clear)
-
   nmap <buffer> N <Plug>(fern-action-new-path=)
+
+  " pでpreview
+  nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
+  nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
 endfunction
 augroup FernEvents
   autocmd!
   autocmd FileType fern call FernInit()
 augroup END
-let g:fern#disable_default_mappings = 1
 
 " <C-e>で起動
 nnoremap <C-e> :Fern . -reveal=% -drawer -toggle -width=27<CR>
@@ -34,17 +37,6 @@ augroup __fern__
   au!
   autocmd VimEnter * ++nested Fern . -reveal=% -drawer -toggle -width=27
 augroup END
-
-augroup fern-settings
-  autocmd!
-  autocmd FileType fern call s:fern_settings()
-augroup END
-
-" pでpreview
-function! s:fern_settings() abort
-  nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
-  nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
-endfunction
 
 " font適用
 let g:fern#renderer = 'nerdfont'
