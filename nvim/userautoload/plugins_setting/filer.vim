@@ -2,12 +2,20 @@
 " keymap変更
 let g:fern#disable_default_mappings = 1
 function! FernInit() abort
+  nmap <buffer><silent><expr>
+    \ <Plug>(fern-my-open-or-expand-collapse)
+    \ fern#smart#leaf(
+    \   "\<Plug>(fern-action-open)",
+    \   "\<Plug>(fern-action-expand)",
+    \   "\<Plug>(fern-action-collapse)",
+    \ )
+
   nmap <buffer> r <Plug>(fern-action-reload)
   nmap <buffer> H <Plug>(fern-action-hidden)
 
   nmap <buffer> i <Plug>(fern-action-open:below)
   nmap <buffer> I <Plug>(fern-action-open:right)
-  nmap <buffer> o <Plug>(fern-action-open-or-expand)
+  nmap <buffer> o <Plug>(fern-my-open-or-expand-collapse)
   nmap <buffer> O <Plug>(fern-action-collapse)
   nmap <buffer> l <Plug>(fern-action-enter)
   nmap <buffer> h <Plug>(fern-action-leave)
