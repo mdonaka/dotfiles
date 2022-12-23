@@ -31,6 +31,8 @@ function! FernInit() abort
   " pでpreview
   nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
   nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
+  nmap <silent> <buffer> d <Plug>(fern-action-preview:scroll:down:half)
+  nmap <silent> <buffer> u <Plug>(fern-action-preview:scroll:up:half)
 endfunction
 augroup FernEvents
   autocmd!
