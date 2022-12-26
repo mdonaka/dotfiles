@@ -25,6 +25,7 @@ function! FernInit() abort
   nmap <buffer> P <Plug>(fern-action-clipboard-paste)
   nmap <buffer> D <Plug>(fern-action-remove)
   nmap <buffer> - <Plug>(fern-action-mark:toggle)
+  vmap <buffer> - <Plug>(fern-action-mark:toggle)
   nmap <buffer> = <Plug>(fern-action-mark:clear)
   nmap <buffer> N <Plug>(fern-action-new-path=)
 
@@ -35,9 +36,12 @@ function! FernInit() abort
   nmap <silent> <buffer> u <Plug>(fern-action-preview:scroll:up:half)
 
   " fzf
-  nmap <buffer> ff <Plug>(fern-action-fzf-root-files)
-  nmap <buffer> fd <Plug>(fern-action-fzf-root-dirs)
-  nmap <buffer> fa <Plug>(fern-action-fzf-root-both)
+  nmap <buffer> ff <Plug>(fern-action-fzf-files)
+  nmap <buffer> fd <Plug>(fern-action-fzf-dirs)
+  nmap <buffer> fa <Plug>(fern-action-fzf-both)
+  nmap <buffer> frf <Plug>(fern-action-fzf-root-files)
+  nmap <buffer> frd <Plug>(fern-action-fzf-root-dirs)
+  nmap <buffer> fra <Plug>(fern-action-fzf-root-both)
 
 endfunction
 augroup FernEvents
