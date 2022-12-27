@@ -10,3 +10,38 @@ eval "$(pyenv init -)"
 
 # vim to nvim
 alias vim=`which nvim`
+
+export FZF_TMUX=1
+export FZF_TMUX_OPTS="-p 80%"
+
+# fuzzy add
+fadd() {
+  local selected
+  selected=$(git status -s | fzf-tmux -m --ansi --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk '{print $2}')
+  if [[ -n "$selected" ]]; then
+    git add `paste -s - <<< $selected`
+  fi
+}
+
+# fuzzy checkout
+fcheckout() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+# fuzzy docker login
+flogin() {
+  local cid
+  cid=$(docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" | sed 1d | fzf-tmux --multi -q "$1" | awk '{print $1}')
+  [ -n "$cid" ] && docker exec -it "$cid" /bin/bash
+}
+
+# tmuxがインストールされていれば実行
+if which tmux >/dev/null 2>&1; then
+    test -z "$TMUX" && (tmux attach -t main || tmux new-session -s main)
+else
+  echo "\e[33m[Warning]\e[m Please install tmux!"
+fi
