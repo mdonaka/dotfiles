@@ -16,6 +16,11 @@ echo "set bell-style none" >> ~/.inputrc
 # bashrc
 cat .bashrc >> ~/.bashrc
 
+# tmux
+# TODO: install
+cat .tmux.conf >> ~/.tmux.conf
+tmux source ~/.tmux.conf
+
 # update
 sudo add-apt-repository ppa:neovim-ppa/stable
 ln -sf ~/dotfiles/.update.sh ~/.update.sh
