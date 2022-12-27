@@ -67,7 +67,7 @@ flogin() {
 
 # tmuxがインストールされていれば実行
 if which tmux >/dev/null 2>&1; then
-    test -z "$TMUX" && (tmux attach -t main || tmux new-session -s main)
+  test -z "$TMUX" && tmux new-session && exit
 else
   echo "\e[33m[Warning]\e[m Please install tmux!"
 fi
