@@ -17,7 +17,11 @@ export FZF_TMUX_OPTS="-p 80%"
 # fuzzy add
 fadd() {
   local selected
-  selected=$(git status -s | fzf-tmux -m --ansi --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk '{print $2}')
+  selected=$(git status -s |
+             fzf-tmux -m --ansi --preview="echo {} | \
+                                           awk '{print \$2}' | \
+                                           xargs git diff --color" |
+             awk '{print $2}')
   if [[ -n "$selected" ]]; then
     git add `paste -s - <<< $selected`
   fi
@@ -28,14 +32,23 @@ fcheckout() {
   local branches branch
   branches=$(git branch --all | grep -v HEAD) &&
   branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) \
+                    +m \
+                    --preview="echo {} | \
+                               tr -d ' *' |
+                               xargs git log --color --graph --oneline")
+  if [[ -n "$branch" ]]; then
+    git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+  fi
 }
 
 # fuzzy docker login
 flogin() {
   local cid
-  cid=$(docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" | sed 1d | fzf-tmux --multi -q "$1" | awk '{print $1}')
+  cid=$(docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" |
+        sed 1d |
+        fzf-tmux --multi -q "$1" |
+        awk '{print $1}')
   [ -n "$cid" ] && docker exec -it "$cid" /bin/bash
 }
 
