@@ -27,7 +27,7 @@ function! FernInit() abort
   nmap <buffer> - <Plug>(fern-action-mark:toggle)
   vmap <buffer> - <Plug>(fern-action-mark:toggle)
   nmap <buffer> = <Plug>(fern-action-mark:clear)
-  nmap <buffer> N <Plug>(fern-action-new-path=)
+  nmap <buffer> A <Plug>(fern-action-new-path=)
 
   " pでpreview
   nmap <silent> <buffer> p <Plug>(fern-action-preview:toggle)
