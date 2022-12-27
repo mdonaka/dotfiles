@@ -27,6 +27,19 @@ fadd() {
   fi
 }
 
+# fuzzy diff
+fdiff() {
+  local selected
+  selected=$(git status -s |
+             fzf-tmux -m --ansi --preview="echo {} | \
+                                           awk '{print \$2}' | \
+                                           xargs git diff --color" |
+             awk '{print $2}')
+  if [[ -n "$selected" ]]; then
+    git diff `paste -s - <<< $selected`
+  fi
+}
+
 # fuzzy checkout
 fcheckout() {
   local branches branch
