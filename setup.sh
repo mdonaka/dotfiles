@@ -16,8 +16,12 @@ echo "set bell-style none" >> ~/.inputrc
 # bashrc
 cat .bashrc >> ~/.bashrc
 
+# fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 # tmux
-# TODO: install
+sudo apt install tmux
 cat .tmux.conf >> ~/.tmux.conf
 tmux source ~/.tmux.conf
 
