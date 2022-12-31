@@ -42,7 +42,7 @@ function! CppSetting()
     let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
     let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
   else
-    let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-10/lib/libclang-10.so.1'
+    let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-14/lib/libclang-14.so.1'
     let g:deoplete#sources#clang#clang_header='/usr/include/clang'
   endif
 
