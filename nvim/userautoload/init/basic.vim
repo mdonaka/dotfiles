@@ -91,8 +91,6 @@ if uname == 'Linux'
 endif
 
 "#### ターミナルモード
-"tmuxで開く
-set shell=tmux
 " 下に開く
 if has('nvim')
   command! -nargs=* Term split | terminal <args>
