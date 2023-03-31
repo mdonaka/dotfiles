@@ -1,1 +1,0 @@
-/home/nakata/dotfiles/.vim
