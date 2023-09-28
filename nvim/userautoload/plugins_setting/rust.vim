@@ -18,6 +18,8 @@ function! RustSetting()
     return !col || getline('.')[col - 1]  =~# '\s'
   endfunction
 
+  inoremap <silent><expr> <C-q> coc#pum#visible() ? coc#pum#scroll(0) : "\<C-q>"
+
   " depleteと競合するのでoffにする
   call deoplete#custom#option({
   \ 'auto_complete_popup': 'manual',
