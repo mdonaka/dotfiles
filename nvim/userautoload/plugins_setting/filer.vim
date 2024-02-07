@@ -5,7 +5,7 @@ function! FernInit() abort
   nmap <buffer><silent><expr>
     \ <Plug>(fern-my-open-or-expand-collapse)
     \ fern#smart#leaf(
-    \   "\<Plug>(fern-action-open)",
+    \   "\<Plug>(fern-action-open-or-enter)",
     \   "\<Plug>(fern-action-expand)",
     \   "\<Plug>(fern-action-collapse)",
     \ )
