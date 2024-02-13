@@ -1,7 +1,11 @@
 
 autocmd! FileType terraform call TerraformSetting()
+autocmd! FileType hcl call TerraformSetting()
 function! TerraformSetting()
-  let g:ale_fixers = {'terraform': ['terraform']}
+  let g:ale_fixers = {
+  \ 'terraform': ['terraform'],
+  \ 'hcl': ['terraform']
+  \ }
 
   " cocの補完をtabでできるようにする
   inoremap <silent><expr> <TAB>
