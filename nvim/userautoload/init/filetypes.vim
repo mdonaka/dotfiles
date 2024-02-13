@@ -5,3 +5,5 @@ au BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
 autocmd BufRead,BufNewFile *.md  set filetype=markdown
 autocmd BufRead,BufNewFile *.csv set filetype=csv
+autocmd BufRead,BufNewFile *.tf set filetype=terraform
+autocmd BufRead,BufNewFile *.hcl set filetype=terraform

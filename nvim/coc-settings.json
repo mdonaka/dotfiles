@@ -1,3 +1,10 @@
 {
-  "suggest.noselect": true
+  "suggest.noselect": true,
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform", "tf", "hcl"]
+    }
+ 
 }
+
