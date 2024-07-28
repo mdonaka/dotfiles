@@ -78,12 +78,12 @@ if uname == 'Linux'
     let g:clipboard = {
         \   'name': 'myClipboard',
         \   'copy': {
-        \      '+': 'win32yank.exe -i',
-        \      '*': 'win32yank.exe -i',
+        \      '+': 'xsel -bi',
+        \      '*': 'xsel -bi',
         \    },
         \   'paste': {
-        \      '+': 'win32yank.exe -o',
-        \      '*': 'win32yank.exe -o',
+        \      '+': 'xsel -bo',
+        \      '*': 'xsel -bo',
         \   },
         \   'cache_enabled': 1,
         \ }
