@@ -6,6 +6,7 @@ call deoplete#custom#option({
 \ 'auto_complete_delay': 0,
 \ 'omni_patterns': {}
 \ })
+let g:auto_complete_start_length = 1
 
 imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-y>" : "\<CR>"
 imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
