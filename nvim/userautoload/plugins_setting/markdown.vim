@@ -19,7 +19,7 @@ function! MarkdownSetting()
 
   endif
 
-  " F5でプレビューを開く(quickrunの設定を更新しているので注意)
+  " F5でプレビューを開く
   nnoremap <F5> :<C-u>PrevimOpen<CR> 
 
   " リアルタイム更新
