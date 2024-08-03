@@ -4,9 +4,9 @@ autocmd! FileType c call CppSetting()
 function! CppSetting()
 
   "### vim-clang-format ###
-  let g:clang_exec = '/usr/bin/g++'
+  let g:clang_exec = '/usr/bin/g++-12'
   let g:clang_c_options = '-std=c11'
-  let g:clang_cpp_options = '-std=c++2a -pedantic-errors -fconcepts'
+  let g:clang_cpp_options = '-std=c++2b -pedantic-errors -fconcepts -I /ac-library'
   let g:clang_format_auto = 1
   let g:clang_format_style = 'Google'
   let g:clang_check_syntax_auto = 1
@@ -16,18 +16,10 @@ function! CppSetting()
       \}
   ClangFormatAutoEnable
 
-  "### QuickRun ###
-  let g:quickrun_config = {
-  \  'cpp':{
-  \    'command': 'g++',
-  \    'cmdopt': '-std=c++2a -O2 -fconcepts'
-  \  }
-  \}
-
   "### ale ###
   let g:ale_linters['cpp'] = ['g++']
-  let g:ale_cpp_cc_executable = 'g++'
-  let g:ale_cpp_cc_options = '-std=c++2a -Wall -I../includes'
+  let g:ale_cpp_cc_executable = 'g++-12'
+  let g:ale_cpp_cc_options = '-std=c++2b -Wall -I../includes -I /ac-library'
 
   " ### vim-cpp-enhanced-highlight ###
   let g:cpp_class_scope_highlight = 1

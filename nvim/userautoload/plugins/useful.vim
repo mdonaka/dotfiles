@@ -14,9 +14,6 @@ Plug 'Townk/Vim-autoclose'
 " 汎用的な自動補完
 Plug 'Shougo/deoplete.nvim'
 
-" vim中に何かしらを実行する
-Plug 'thinca/vim-quickrun'
-
 " オペレータを定義する(これに依存するプラグイン用)
 Plug 'kana/vim-operator-user'
 

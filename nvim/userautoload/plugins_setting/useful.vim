@@ -1,6 +1,3 @@
-"### quickrun ###
-" キーの設定
-nnoremap <F5> :<C-u>QuickRun<CR> 
 
 "### deoplete ###
 let g:deoplete#enable_at_startup = 1
