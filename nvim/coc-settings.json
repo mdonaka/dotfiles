@@ -1,10 +1,13 @@
 {
   "suggest.noselect": true,
+  "coc.preferences.formatOnSave": true,
+
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
       "filetypes": ["terraform", "tf", "hcl"]
-    }
- 
+    },
+
+  "ruff.autoFixOnSave": true
 }
 

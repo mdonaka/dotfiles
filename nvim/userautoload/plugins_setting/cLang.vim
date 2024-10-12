@@ -24,9 +24,6 @@ function! CppSetting()
   let g:cpp_experimental_simple_template_highlight = 1
   let g:cpp_concepts_highlight = 1
 
-  " depleteと競合するのでoffにする
-  call deoplete#custom#option({
-  \ 'auto_complete_popup': 'manual',
-  \ })
-
+  "### vim-commentary ###
+  autocmd FileType cpp,hpp setlocal commentstring=//\%s
 endfunction
