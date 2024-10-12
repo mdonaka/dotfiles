@@ -16,12 +16,7 @@ function! CppSetting()
       \}
   ClangFormatAutoEnable
 
-  "### ale ###
-  let g:ale_linters['cpp'] = ['g++']
-  let g:ale_cpp_cc_executable = 'g++-12'
-  let g:ale_cpp_cc_options = '-std=c++2b -Wall -I../includes -I /ac-library'
-
-  " ### vim-cpp-enhanced-highlight ###
+  "" ### vim-cpp-enhanced-highlight ###
   let g:cpp_class_scope_highlight = 1
   let g:cpp_member_variable_highlight = 1
   let g:cpp_class_decl_highlight = 1
@@ -29,13 +24,9 @@ function! CppSetting()
   let g:cpp_experimental_simple_template_highlight = 1
   let g:cpp_concepts_highlight = 1
 
-  " ### deoplete-clang ###
-  if has("mac")
-    let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
-    let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
-  else
-    let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-14/lib/libclang-14.so.1'
-    let g:deoplete#sources#clang#clang_header='/usr/include/clang'
-  endif
+  " depleteと競合するのでoffにする
+  call deoplete#custom#option({
+  \ 'auto_complete_popup': 'manual',
+  \ })
 
 endfunction
