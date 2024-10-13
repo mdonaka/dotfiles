@@ -17,3 +17,13 @@ function! CheckBackspace() abort
 endfunction
 
 inoremap <silent><expr> <C-q> coc#pum#visible() ? coc#pum#scroll(0) : "\<C-q>"
+
+" coclist
+nnoremap <C-l> :CocList<CR>
+
+" 定義ジャンプ
+nmap <silent> gdi :sp<CR><Plug>(coc-definition)
+nmap <silent> gdI :vs<CR><Plug>(coc-definition)
+
+" 変数名変更
+nmap <silent> <C-n> <Plug>(coc-rename)
