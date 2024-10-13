@@ -22,6 +22,7 @@ inoremap <silent><expr> <C-q> coc#pum#visible() ? coc#pum#scroll(0) : "\<C-q>"
 nnoremap <C-l> :CocList<CR>
 
 " 定義ジャンプ
+nmap <silent> gdj <Plug>(coc-definition)
 nmap <silent> gdi :sp<CR><Plug>(coc-definition)
 nmap <silent> gdI :vs<CR><Plug>(coc-definition)
 
