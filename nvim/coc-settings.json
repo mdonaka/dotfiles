@@ -6,7 +6,8 @@
     "terraform": {
       "command": "terraform-lsp",
       "filetypes": ["terraform", "tf", "hcl"]
-    },
+    }
+  },
 
   "ruff.autoFixOnSave": true
 }
