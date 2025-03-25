@@ -2,6 +2,14 @@
   "suggest.noselect": true,
   "coc.preferences.formatOnSave": true,
 
+  "clangd": {
+    "arguments": [
+      "--header-insertion=never"
+    ],
+    "semanticHighlighting": true,
+    "hover": true
+  },
+
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
