@@ -1,7 +1,6 @@
 {
   "suggest.noselect": true,
   "coc.preferences.formatOnSave": true,
-
   "clangd": {
     "arguments": [
       "--header-insertion=never"
@@ -9,14 +8,32 @@
     "semanticHighlighting": true,
     "hover": true
   },
-
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
-      "filetypes": ["terraform", "tf", "hcl"]
+      "filetypes": [
+        "terraform",
+        "tf",
+        "hcl"
+      ]
     }
   },
-
-  "ruff.autoFixOnSave": true
+  "python": {
+    "formatting": {
+      "provider": "ruff"
+    },
+    "linting": {
+      "ruffEnabled": true
+    }
+  },
+  "pyright": {
+    "organizeimports": {
+      "provider": true
+    },
+    "inlayHints": {
+      "functionReturnTypes": false,
+      "variableTypes": false,
+      "parameterTypes": false
+    }
+  }
 }
-
