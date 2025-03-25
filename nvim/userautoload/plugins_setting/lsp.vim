@@ -17,6 +17,7 @@ function! CheckBackspace() abort
 endfunction
 
 inoremap <silent><expr> <C-q> coc#pum#visible() ? coc#pum#scroll(0) : "\<C-q>"
+inoremap <silent><expr> <C-l> coc#refresh()
 
 " coclist
 nnoremap <C-l> :CocList<CR>
