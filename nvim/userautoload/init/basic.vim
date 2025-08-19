@@ -41,18 +41,6 @@ set incsearch
 " vimgrepでquickfix-windowを開く
 autocmd QuickFixCmdPost *grep* cwindow
 
-"##### 色関係 #####
-" 色変更の関数
-let s:colorList = split(system("ls ~/.config/nvim/colors/"), "\n")
-function! ColorChanger(num)
-  let s:colorName = split(s:colorList[a:num], ".vim")[0]
-  echo "change the color to [" . s:colorName . "]"
-  exe("colorscheme " . s:colorName)
-endfunction
-" 起動時の色をランダム変更
-let s:colorSize = system("ls -1 ~/.config/nvim/colors | wc -l")
-call ColorChanger(system('echo $((RANDOM%+' . s:colorSize . '))'))
-
 let g:rehash=1
 " 対応括弧の色付け
 hi MatchParen ctermfg=LightGreen ctermbg=blue

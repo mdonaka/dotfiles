@@ -23,3 +23,6 @@ Plug 'Shougo/neosnippet-snippets'
 
 " 複数行コメント
 Plug 'tpope/vim-commentary'
+
+" Vimのcolorschemeを切り替える
+Plug 'mdonaka/vim-color-switcher'
