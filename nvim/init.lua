@@ -1,4 +1,6 @@
-
+require("config.options")
+require("config.filetypes")
+require("config.keymaps")
 require("config.lazy")
 
 -- init.vimを移植完了まで読み込んでおく
