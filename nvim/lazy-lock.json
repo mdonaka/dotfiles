@@ -1,4 +1,5 @@
 {
+  "coc.nvim": { "branch": "release", "commit": "5e34cdeff4d6b77eccb07b2f63f30e811ea125dc" },
   "fern-git-status.vim": { "branch": "master", "commit": "151336335d3b6975153dad77e60049ca7111da8e" },
   "fern-mapping-fzf.vim": { "branch": "master", "commit": "9b124fbbb72fea3098ee4b11dbc7b45945978913" },
   "fern-preview.vim": { "branch": "main", "commit": "74f2c1c45eb48fe9b7e4aa87032f053808944e17" },
