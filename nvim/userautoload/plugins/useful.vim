@@ -23,7 +23,3 @@ Plug 'Shougo/neosnippet-snippets'
 
 " Vimのcolorschemeを切り替える
 Plug 'mdonaka/vim-color-switcher'
-
-" fzfをいい感じに使う
-Plug 'ibhagwan/fzf-lua'
-Plug 'nvim-tree/nvim-web-devicons'
