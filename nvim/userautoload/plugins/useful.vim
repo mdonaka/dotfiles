@@ -1,11 +1,6 @@
 " 非同期処理
 Plug 'Shougo/vimproc.vim'
 
-" vimでgitをどうちゃらする
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
 " 括弧の自動補完
 Plug 'Townk/Vim-autoclose'
 
