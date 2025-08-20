@@ -100,11 +100,9 @@ return {
       vim.g["fern#renderer#nerdfont#indent_markers"] = 1
     end,
   },
-
-  { "junegunn/fzf", build = "./install --bin" },
   {
     "LumaKernel/fern-mapping-fzf.vim",
-    dependencies = { "lambdalisue/fern.vim" },
+    dependencies = { "lambdalisue/fern.vim", "junegunn/fzf" },
     config = function()
       -- fzfオプションカスタマイズ
       vim.cmd([[
