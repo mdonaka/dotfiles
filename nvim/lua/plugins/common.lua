@@ -46,8 +46,18 @@ return {
   {
     "Shougo/neosnippet-snippets",
   },
+
   -- Vimのcolorschemeを切り替える
   {
     "mdonaka/vim-color-switcher",
-  },
+    dependencies = {
+      "rafi/awesome-vim-colorschemes",
+      {
+        "ibhagwan/fzf-lua",
+        dependencies = {
+          "nvim-tree/nvim-web-devicons",
+        },
+      }
+    }
+  }
 }
