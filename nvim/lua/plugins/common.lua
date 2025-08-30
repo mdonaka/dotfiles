@@ -49,7 +49,10 @@ return {
 
   -- Vimのcolorschemeを切り替える
   {
-    "mdonaka/vim-color-switcher",
+    "mdonaka/color-manager.nvim",
+    opts = {
+      randomize_colorscheme_on_startup = true,
+    },
     dependencies = {
       "rafi/awesome-vim-colorschemes",
       {
