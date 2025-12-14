@@ -1,46 +1,26 @@
 return {
   {
-    "github/copilot.vim",
-    branch = "release",
-  },
-  {
-    "nvim-lua/plenary.nvim",
-  },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      { "nvim-lua/plenary.nvim", branch = "master" },
+    "coder/claudecode.nvim",
+    dependencies = { "folke/snacks.nvim" },
+    config = true,
+    keys = {
+      { "<leader>a",  nil,                              desc = "AI/Claude Code" },
+      { "<leader>ac", "<cmd>ClaudeCode<cr>",            desc = "Toggle Claude" },
+      { "<leader>af", "<cmd>ClaudeCodeFocus<cr>",       desc = "Focus Claude" },
+      { "<leader>ar", "<cmd>ClaudeCode --resume<cr>",   desc = "Resume Claude" },
+      { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+      { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
+      { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>",       desc = "Add current buffer" },
+      { "<leader>as", "<cmd>ClaudeCodeSend<cr>",        mode = "v",                  desc = "Send to Claude" },
+      {
+        "<leader>as",
+        "<cmd>ClaudeCodeTreeAdd<cr>",
+        desc = "Add file",
+        ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
+      },
+      -- Diff management
+      { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
+      { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>",   desc = "Deny diff" },
     },
-    config = function()
-      require("CopilotChat").setup()
-
-      local chat = require("CopilotChat")
-      local select = require("CopilotChat.select")
-
-      vim.keymap.set("n", "<leader>cc", chat.open, { silent = true, desc = "Copilot Chat Open" })
-      vim.keymap.set("n", "<leader>cq", "<Cmd>CopilotChatBuffer<CR>",
-        { silent = true, desc = "Copilot Chat Quick Buffer" })
-      vim.keymap.set("x", "<leader>cr", function()
-        chat.ask("このコードをリファクタリングしてください", { selection = select.visual })
-      end, { silent = true, desc = "Copilot Chat Refactor Selection" })
-      vim.keymap.set("x", "<leader>cf", function()
-        chat.ask("このコードを修正してください", { selection = select.visual })
-      end, { silent = true, desc = "Copilot Chat Fix Selection" })
-      vim.keymap.set("n", "<leader>cm", function()
-        local diff = table.concat(vim.fn.systemlist('git diff'), '\n')
-        local prompt =
-            "このgit diffからcommit messageを生成してください．\ncommit messageは英語で簡潔に書いてください．\n ex1) add --- \n ex2) remove --- \n" ..
-            diff
-        chat.ask(prompt)
-      end, { silent = true, desc = "Copilot Chat: Commit message from git diff" })
-
-      vim.api.nvim_create_user_command("CopilotChatBuffer", function()
-        vim.ui.input({ prompt = "Quick Chat: " }, function(input)
-          if input and input ~= "" then
-            chat.ask(input, { selection = select.buffer })
-          end
-        end)
-      end, {})
-    end,
-  },
+  }
 }
