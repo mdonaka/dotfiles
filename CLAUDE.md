@@ -1,49 +1,33 @@
-# CLAUDE.md
+# CLAUDE.md (Global)
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides global guidance to Claude Code (claude.ai/code).
 
 ## Language
 
 **Always respond in Japanese (日本語).**
 
-## Repository Overview
+## Development Practice
 
-This is a dotfiles repository containing shell and editor configurations for a Linux/WSL development environment.
+**Test-Driven Development (TDD)** - when building application code with testable logic:
 
-## Setup
+1. **Red**: Write a failing test first
+2. **Green**: Write minimum code to pass
+3. **Refactor**: Clean up while keeping tests green
 
-```bash
-# Initial setup (run from ~/dotfiles after cloning)
-./setup.sh
+*Skip for: scripts, config files, prototypes, exploratory coding*
 
-# After shell restart, install Python versions
-./setup2.sh
-```
+**Object-Oriented Principles** - when using OOP languages for structured applications:
 
-## Structure
+- Apply SOLID principles
+- Favor composition over inheritance
+- Program to interfaces
 
-- `.bashrc` - Bash configuration with pyenv, fzf integrations, and custom git helper functions (fadd, fdiff, fcheckout, flogin)
-- `.config/` - Config files for flake8 and pep8
-- `nvim/` - Neovim configuration using lazy.nvim plugin manager
+*Skip for: shell scripts, functional code, simple utilities*
 
-## Neovim Configuration
+**Domain-Driven Design (DDD)** - when dealing with complex business domains:
 
-The nvim config follows a modular Lua structure:
+- Use ubiquitous language
+- Model with Entities, Value Objects, Aggregates
+- Separate domain from infrastructure
 
-```
-nvim/
-├── init.lua              # Entry point, loads config modules
-├── lua/
-│   ├── config/
-│   │   ├── options.lua   # Editor settings
-│   │   ├── keymaps.lua   # Key bindings
-│   │   ├── filetypes.lua # Filetype settings
-│   │   └── lazy.lua      # lazy.nvim bootstrap and setup
-│   └── plugins/          # Plugin specs (one file per plugin/category)
-└── coc-settings.json     # CoC LSP settings
-```
-
-**Leader key**: Space
-**Plugin manager**: lazy.nvim (auto-bootstraps on first run)
-
-Key plugins are organized by language/function: coc (LSP), fzf, git, filer, and language-specific configs (cpp, python, rust, terraform, markdown, csv, llm).
+*Skip for: simple CRUD, CLI tools, small scripts*

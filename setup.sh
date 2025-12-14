@@ -2,6 +2,10 @@
 
 # git
 git config --global core.editor vim
+
+# Claude Code
+mkdir -p ~/.claude
+ln -sf ~/dotfiles/CLAUDE.md ~/.claude/CLAUDE.md
 git config --global alias.tree 'log --graph --all --format="%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta bold)%d%Creset %s" -n 20'
 
 # config
