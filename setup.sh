@@ -30,13 +30,16 @@ cat .tmux.conf >> ~/.tmux.conf
 tmux source ~/.tmux.conf
 
 # update
-sudo add-apt-repository ppa:neovim-ppa/stable
 ln -sf ~/dotfiles/.update.sh ~/.update.sh
 ~/.update.sh
 
 # neovim
-# https://github.com/neovim/neovim
-sudo apt install -y neovim
+# https://github.com/neovim/neovim/releases
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+tar xzf nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim
+sudo mv nvim-linux-x86_64 /opt/nvim
+rm nvim-linux-x86_64.tar.gz
 ln -sf ~/dotfiles/nvim ~/.config/nvim
 # https://github.com/junegunn/vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \

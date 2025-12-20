@@ -8,11 +8,13 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
-# vim to nvim
-alias vim=`which nvim`
+# neovim
+export PATH="/opt/nvim/bin:$PATH"
+alias vim='nvim'
 
 # make for clangd
 alias mymake='compiledb make'
+alias g++='g++-14'
 
 export FZF_TMUX=1
 export FZF_TMUX_OPTS="-p 80%"
@@ -68,3 +70,6 @@ flogin() {
   [ -n "$cid" ] && docker exec -it "$cid" /bin/bash
 }
 
+# fnm
+export PATH="/home/mdo/.local/share/fnm:$PATH"
+eval "$(fnm env)"
