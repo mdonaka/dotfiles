@@ -4,7 +4,7 @@ return {
     ft = { "c", "cpp" },
     config = function()
       -- 共通設定
-      vim.g.clang_exec = "/usr/bin/g++-12"
+      vim.g.clang_exec = "/usr/bin/g++-14"
       vim.g.clang_c_options = "-std=c11"
       vim.g.clang_cpp_options = "-std=c++2b -pedantic-errors -fconcepts -I /ac-library"
       vim.g.clang_format_auto = 1

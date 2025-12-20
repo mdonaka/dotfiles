@@ -3,6 +3,19 @@ return {
     "neoclide/coc.nvim",
     branch = "release",
     config = function()
+      -- coc拡張機能の自動インストール
+      vim.g.coc_global_extensions = {
+        'coc-lists',
+        'coc-tsserver',
+        'coc-rust-analyzer',
+        'coc-pyright',
+        'coc-phpls',
+        'coc-lua',
+        'coc-json',
+        'coc-go',
+        'coc-clangd',
+      }
+
       -- cocの補完をtabでできるようにする
       vim.api.nvim_set_keymap("i", "<TAB>",
         'coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "\\<Tab>" : coc#refresh()',
