@@ -13,12 +13,14 @@ Claude Code用のプラグインマーケットプレイス
 
 | プラグイン | 説明 |
 |-----------|------|
-| hello | 終了時に "hello" を表示 |
+| notify-macos | タスク完了時・承認要求時にmacOS通知を送信 |
+| command-logger | 実行したBashコマンドを履歴ファイルに記録 |
+| markdown-task-runner | Markdownタスクをサブエージェントで並列実行 |
 
 ## プラグインのインストール
 
 ```bash
-/plugin install hello@mdonaka
+/plugin install markdown-task-runner@mdonaka
 ```
 
 ## プラグインの作成
