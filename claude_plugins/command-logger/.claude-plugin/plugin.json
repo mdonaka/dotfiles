@@ -1,0 +1,6 @@
+{
+  "name": "command-logger",
+  "description": "Logs executed Bash commands to a cache file for history tracking",
+  "version": "1.0.0",
+  "hooks": "./hooks/hooks.json"
+}
