@@ -31,21 +31,23 @@ Markdownファイルに定義されたタスクをサブエージェントで並
 ## 機能
 
 - **task-orchestrator**: タスク解析とサブエージェントへの指示
-- **task-implementer**: TDDに基づく実装
+- **task-designer**: 要件分析と設計方針の策定
+- **task-implementer**: コーディングを担当
 - **task-reviewer**: コードレビューと品質チェック
 - **git-worktree**: 独立タスクの並列実行
 - **自動ログ**: タスクファイルへの作業記録
 
 ## エージェント構成
 
-1. **task-orchestrator** - タスクを解釈し，実装・レビューエージェントに作業を割り振る
-2. **task-implementer** - 実際のコーディングを担当（TDD原則に従う）
-3. **task-reviewer** - 実装のレビューと品質チェックを担当
+1. **task-orchestrator** - タスクを解釈し，各エージェントに作業を割り振る
+2. **task-designer** - 要件分析，設計方針策定，タスク分解を担当
+3. **task-implementer** - 実際のコーディングを担当
+4. **task-reviewer** - 実装のレビューと品質チェックを担当
 
 ## ワークフロー
 
 ```
-実装 → レビュー → 修正 → 完了
+設計（必要に応じて） → 実装 → レビュー → 修正 → 完了
 ```
 
 独立したタスクはgit-worktreeで並列実行可能．
