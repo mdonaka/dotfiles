@@ -1,9 +1,15 @@
 {
   "name": "mdonaka",
   "owner": {
-    "name": "nakata"
+    "name": "mdonaka"
   },
   "plugins": [
+    {
+      "name": "notify-macos",
+      "source": "./notify-macos",
+      "description": "macOS only: Sends native desktop notifications on task completion and approval requests",
+      "version": "1.0.0"
+    },
     {
       "name": "command-logger",
       "source": "./command-logger",

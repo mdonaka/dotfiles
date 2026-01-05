@@ -1,0 +1,6 @@
+{
+  "name": "notify-macos",
+  "description": "macOS only: Sends native desktop notifications on task completion and approval requests",
+  "version": "1.0.0",
+  "hooks": "./hooks/hooks.json"
+}
