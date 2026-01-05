@@ -20,6 +20,7 @@ brew install terminal-notifier jq
 
 ## 機能
 
+- セッション開始時に依存関係をチェック（不足時のみ警告表示）
 - タスク完了時に通知を送信（サウンド: Blow）
 - 承認要求時に通知を送信（サウンド: Purr）
 - 実行中のツール情報（コマンド，ファイルパス，検索パターンなど）を通知に表示
@@ -32,7 +33,21 @@ Claude Code内で`/plugin`コマンドを使用してインストールします
 /plugin install notify-macos@nakata
 ```
 
-## 通知タイプ
+## フックタイプ
+
+### check-deps（依存関係チェック）
+
+セッション開始時（SessionStart フック）に実行され、`terminal-notifier` と `jq` がインストールされているかチェックします。
+
+- **トリガー**: セッション開始時
+- **動作**: 不足しているコマンドがある場合のみ警告メッセージを表示し、インストール方法を案内
+- **出力例**:
+  ```
+  [notify-macos] Required commands not found: terminal-notifier jq
+  [notify-macos] Run: brew install terminal-notifier jq
+  ```
+
+すべての依存関係が揃っている場合は何も出力しません。
 
 ### complete（タスク完了）
 
@@ -75,6 +90,7 @@ notify-macos/
 │   └── hooks.json       # フック設定
 ├── scripts/
 │   ├── common.sh        # 共通関数
+│   ├── check-deps.sh    # 依存関係チェック（SessionStart）
 │   ├── complete.sh      # タスク完了通知
 │   └── approval.sh      # 承認要求通知
 └── README.md            # このファイル

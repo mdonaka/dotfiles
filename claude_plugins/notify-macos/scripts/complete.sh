@@ -10,7 +10,9 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/common.sh"
 
-check_dependencies
+# 依存関係がない場合は静かに終了（SessionStartでチェック済み）
+command -v terminal-notifier &> /dev/null || exit 0
+command -v jq &> /dev/null || exit 0
 
 # stdin から hook JSON を読み込む
 HOOK_JSON=$(read_hook_json)

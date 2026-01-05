@@ -12,7 +12,9 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/common.sh"
 
-check_dependencies
+# 依存関係がない場合は静かに終了（SessionStartでチェック済み）
+command -v terminal-notifier &> /dev/null || exit 0
+command -v jq &> /dev/null || exit 0
 
 CLAUDE_MESSAGE=""
 SUBTITLE=""

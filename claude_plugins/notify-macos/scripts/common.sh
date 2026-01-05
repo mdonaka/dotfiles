@@ -7,25 +7,6 @@
 #
 
 ##############################################################################
-# 依存コマンドのチェック
-#
-# terminal-notifier と jq が必要。
-# インストールされていない場合はエラーメッセージを表示して終了する。
-##############################################################################
-
-check_dependencies() {
-    if ! command -v terminal-notifier &> /dev/null; then
-        echo "terminal-notifier not found. Run: brew install terminal-notifier" >&2
-        exit 1
-    fi
-
-    if ! command -v jq &> /dev/null; then
-        echo "jq not found. Run: brew install jq" >&2
-        exit 1
-    fi
-}
-
-##############################################################################
 # stdin から hook JSON を読み込む関数
 #
 # ターミナルでない場合（パイプ入力がある場合）に stdin から JSON を読み込む。
