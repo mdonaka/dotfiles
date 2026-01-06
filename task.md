@@ -30,8 +30,30 @@ markdown-task-runnerプラグインの改修タスク
     [x] フォーマット仕様のサンプルから理由部分を削除
     [x] 説明の記述方法の項目を削除
     [x] 使用例から理由部分を削除
+[x] agentsは適切なものを用いるようにし，無い場合にtask-implementer.mdを用いるようにする
+  [x] 設計
+  [x] commands/task.mdにエージェント選択ロジックを追加する
+    [x] 実装フェーズでのエージェント選択ルールをセクションとして記述する
+    [x] 利用可能なエージェントの探索手順を記述する
+    [x] マッチング基準（エージェント名・descriptionベース）を記述する
+    [x] デフォルトエージェント（task-implementer）へのフォールバックを記述する
 
 # 作業ログ
+
+#### 2026-01-06 - エージェント選択ロジック追加完了
+- task-designerで設計実施
+- task-implementerでcommands/task.mdにエージェント選択セクションを追加
+- task-reviewerで1回目レビュー: 要修正（Major Issues 3件）
+  - 疑似コードの論理エラー
+  - description_keywordsの未定義
+  - マッチング基準の曖昧さ
+- task-implementerで修正実施
+- task-reviewerで2回目レビュー: 承認
+
+変更内容:
+- セクション3.2.1「エージェント選択」を新設
+- 専門エージェントの探索・マッチングロジックを定義
+- task-implementerをデフォルトフォールバックとして設定
 
 #### 2026-01-06 - タスク形式から理由部分を削除完了
 - task-designerで設計実施
