@@ -10,8 +10,8 @@ if ! command -v jq &> /dev/null; then
 fi
 
 if [ ${#missing[@]} -gt 0 ]; then
-    printf "\n[command-logger] Required commands not found: %s\n" "${missing[*]}"
-    printf "[command-logger] Run: brew install %s\n" "${missing[*]}"
+    printf "\n[command-logger] Required commands not found: %s\n" "${missing[*]}" >&2
+    printf "[command-logger] Run: brew install %s\n" "${missing[*]}" >&2
     exit 2
 fi
 

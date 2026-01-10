@@ -26,8 +26,8 @@ fi
 
 # 不足しているコマンドがある場合はエラー終了
 if [ ${#missing[@]} -gt 0 ]; then
-    printf "[notify-macos] Required commands not found: %s\n" "${missing[*]}"
-    printf "[notify-macos] Run: brew install %s\n" "${missing[*]}"
+    printf "[notify-macos] Required commands not found: %s\n" "${missing[*]}" >&2
+    printf "[notify-macos] Run: brew install %s\n" "${missing[*]}" >&2
     exit 2
 fi
 
