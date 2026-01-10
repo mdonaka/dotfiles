@@ -21,6 +21,12 @@
       "source": "./markdown-task-runner",
       "description": "Markdownファイルに定義されたタスクをサブエージェントで並列実行するワークフロー管理プラグイン",
       "version": "1.0.0"
+    },
+    {
+      "name": "notify-wsl",
+      "source": "./notify-wsl",
+      "description": "WSL only: Sends Windows toast notifications on task completion and approval requests",
+      "version": "1.0.0"
     }
   ]
 }

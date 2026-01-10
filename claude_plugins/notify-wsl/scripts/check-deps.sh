@@ -14,6 +14,9 @@
 # 終了コードは常に 0（セッション開始を妨げない）
 ##############################################################################
 
+# スクリプトのディレクトリを取得
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 missing=()
 
 if ! command -v jq &> /dev/null; then
@@ -29,10 +32,17 @@ if ! command -v wslpath &> /dev/null; then
 fi
 
 # toast.shの存在チェック
-TOAST_SCRIPT="${DOTFILES_ROOT:-$HOME/dotfiles}/toast.sh"
+TOAST_SCRIPT="${SCRIPT_DIR}/toast.sh"
 if [ ! -f "$TOAST_SCRIPT" ]; then
     printf "[notify-wsl] toast.sh not found at: %s\n" "$TOAST_SCRIPT" >&2
-    printf "[notify-wsl] Please ensure toast.sh is in your dotfiles directory\n" >&2
+    printf "[notify-wsl] Please ensure toast.sh is in the plugin directory\n" >&2
+    exit 2
+fi
+
+# toast.shの実行権限チェック
+if [ ! -x "$TOAST_SCRIPT" ]; then
+    printf "[notify-wsl] toast.sh is not executable: %s\n" "$TOAST_SCRIPT" >&2
+    printf "[notify-wsl] Run: chmod +x %s\n" "$TOAST_SCRIPT" >&2
     exit 2
 fi
 

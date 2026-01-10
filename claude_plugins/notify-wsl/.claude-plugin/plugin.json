@@ -1,0 +1,5 @@
+{
+  "name": "notify-wsl",
+  "description": "WSL only: Sends Windows toast notifications on task completion and approval requests",
+  "version": "1.0.0"
+}
