@@ -1,117 +1,54 @@
 ---
-name: markdown-task
-description: This skill should be used when the user asks to "run markdown tasks", "execute task file", "parse task format", "understand task tags", or needs guidance on markdown task file format, task status tags ([], [-], [x]), task hierarchy, or progress tracking in markdown files.
-version: 1.0.0
+name: process-task-md
+description: Use when the user references a markdown file containing task instructions, says "mdを処理して", "タスクファイルを実行して", or opens a task file like to_claude.md and asks to process it. Also use when user provides a markdown file with sections like "対象ディレクトリ", "タスク", or structured task instructions.
 ---
 
-# Markdown Task Format Skill
+# タスクMarkdown処理
 
-Markdownファイルでタスクを定義・管理するためのフォーマットに関するスキル．
+markdownファイルに書かれたタスク指示を読み取り、superpowersのワークフローに従って実行する。
 
-## タスク形式
+## When to Use
 
-タスクは以下のタグで状態を表現:
-- `[]` - 未着手タスク
-- `[-]` - 進行中タスク
-- `[x]` - 完了タスク
+- ユーザーがmarkdownファイルを指定して「処理して」「実行して」と言った時
+- `to_claude.md` や `task.md` のようなタスク指示ファイルを参照された時
+- markdownに「対象ディレクトリ」「タスク」等の構造化された指示が含まれている時
 
-## 基本構文
+**NOT:** 単純な質問、コードレビュー、コミット作業など既存スキルがカバーする作業
 
-```markdown
-# Task
-[] メインタスク1
-  [] サブタスク1-1
-  [] サブタスク1-2
-[] メインタスク2
+## Core Pattern
+
+```
+ファイル読み取り → 構造抽出 → superpowersワークフロー → 実行
 ```
 
-## 階層構造
+## ワークフロー
 
-インデント（2スペース）でタスクの階層を表現:
+| ステップ | 内容 |
+|---------|------|
+| 1. 読み取り | 指定されたmdファイルをReadで読む |
+| 2. 構造抽出 | 対象ディレクトリ、タスク、テンプレートを把握 |
+| 3. brainstorm | **REQUIRED:** superpowers:brainstorming でタスクを分解・整理 |
+| 4. 計画 | **REQUIRED:** superpowers:writing-plans で実装計画を作成 |
+| 5. 実行 | 計画に基づいて実行（下記の実行方法を参照） |
+| 6. 確認 | **REQUIRED:** superpowers:verification-before-completion で成果物を検証 |
 
-```markdown
-[] 親タスク
-  [] 子タスク
-    [] 孫タスク
+## 実行方法の選択
+
+ステップ5の実行方法はタスクの規模で判断する：
+
+```
+タスクは1つで単純？ → 直接実行
+独立した複数タスク？ → superpowers:dispatching-parallel-agents で並列サブエージェント実行
+順序依存のある複数タスク？ → superpowers:subagent-driven-development で逐次サブエージェント実行（タスクごとにレビュー付き）
+大規模で協調が必要？ → TeamCreateでエージェントチームを作成して遂行
 ```
 
-親タスクは全ての子タスクが完了したら完了とする．
+## Common Mistakes
 
-## 進捗記録
-
-タスクの下に作業ログを記録:
-
-```markdown
-[-] 機能Xを実装する
-  [x] 設計
-  [-] コーディング
-  [] テスト
-
-### 作業ログ
-#### YYYY-MM-DD HH:MM - 作業内容
-- 実行したコマンド
-- 作成したファイル
-- 備考
-```
-
-## タスク解析ルール
-
-### タスク行の識別
-
-正規表現: `^\s*\[([ x-])\]\s+(.+)$`
-- グループ1: ステータス（空白=未着手, -=進行中, x=完了）
-- グループ2: タスク内容
-
-### 階層レベルの判定
-
-先頭スペース数 / 2 = 階層レベル
-- 0スペース: レベル0（ルート）
-- 2スペース: レベル1
-- 4スペース: レベル2
-
-### 依存関係
-
-- 同階層の先行タスクが完了していない場合，そのタスクは依存あり
-- 子タスクは親タスクに依存
-
-## ステータス更新規則
-
-1. タスク開始時: `[]` → `[-]`
-2. タスク完了時: `[-]` → `[x]`
-3. 全子タスク完了時: 親タスクを `[x]` に更新
-
-## 作業ログのフォーマット
-
-```markdown
-#### YYYY-MM-DD HH:MM - {作業タイトル}
-- {実行内容1}
-- {実行内容2}
-```bash
-{実行したコマンド}
-```
-{備考や結果}
-```
-
-## タスクファイルの構造例
-
-```markdown
-# 概要
-{プロジェクトの説明}
-
-# Task
-[] タスク1
-  [] サブタスク1-1
-  [] サブタスク1-2
-[] タスク2
-  [] サブタスク2-1
-
-# 作業ログ
-{自動的に追記される作業記録}
-```
-
-## Additional Resources
-
-### Reference Files
-
-詳細なフォーマット仕様については:
-- **`references/format.md`** - 完全なフォーマット仕様
+| ミス | 対策 |
+|------|------|
+| brainstormせずに即実行 | 必ずsuperpowers:brainstormingを経由する |
+| 計画なしにコードを書く | superpowers:writing-plansで計画を立てる |
+| テンプレートやサンプルを無視 | mdに記載されたフォーマットに従う |
+| 対象ディレクトリ外を変更 | 指定されたディレクトリのみを対象にする |
+| 成果物の検証をスキップ | superpowers:verification-before-completionで必ず確認 |

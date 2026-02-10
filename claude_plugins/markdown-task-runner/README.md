@@ -1,69 +1,64 @@
 # markdown-task-runner
 
-Markdownファイルに定義されたタスクをサブエージェントで並列実行するワークフロー管理プラグイン
+Markdownファイルに定義されたタスク指示をsuperpowersワークフローで実行するプラグインです．
 
-## インストール
+## 概要
 
-```bash
+このプラグインは，Markdownファイルに記載されたタスク指示を読み取り，superpowersのワークフロー（brainstorm → 計画 → 実行 → 検証）に従って自動的に実行します．タスクの規模に応じて，直接実行・並列サブエージェント・逐次サブエージェント・エージェントチームから最適な実行方法を選択します．
+
+## 機能
+
+- Markdownファイルからタスク指示を構造的に抽出
+- superpowersワークフローに沿った段階的な実行（brainstorm → 計画 → 実行 → 検証）
+- タスク規模に応じた実行方法の自動選択
+
+## インストール方法
+
+Claude Code内で`/plugin`コマンドを使用してインストールします：
+```
 /plugin install markdown-task-runner@mdonaka
 ```
 
 ## 使い方
 
-```bash
-/task path/to/tasks.md
-```
-
-## タスクファイル形式
-
-```markdown
-# Task
-[] メインタスク
-  [] サブタスク1
-  [] サブタスク2
-```
-
-### タグ
-- `[]` - 未着手
-- `[-]` - 進行中
-- `[x]` - 完了
-
-## アーキテクチャ
-
-Claude Codeではサブエージェントからサブエージェントを呼び出せないため，メインセッション（`/task` コマンド）が直接オーケストレーションを行う．
+タスクが記載されたMarkdownファイルを指定して実行します：
 
 ```
-メインセッション (/task コマンド)
-    │
-    ├── task-designer     設計・分析
-    │
-    ├── task-implementer  実装
-    │
-    └── task-reviewer     レビュー
+mdを処理して: path/to/task.md
+タスクファイルを実行して: to_claude.md
 ```
 
-## 機能
+### トリガーとなるフレーズ
 
-- **メインセッション**: タスク解析とサブエージェントへの指示（オーケストレーション）
-- **task-designer**: 要件分析と設計方針の策定
-- **task-implementer**: コーディングを担当
-- **task-reviewer**: コードレビューと品質チェック
-- **git-worktree**: 独立タスクの並列実行
-- **自動ログ**: タスクファイルへの作業記録
+- 「mdを処理して」
+- 「タスクファイルを実行して」
+- `to_claude.md` や `task.md` のようなタスク指示ファイルを参照
 
-## エージェント構成
-
-| エージェント | サブエージェントtype | 役割 |
-|---|---|---|
-| task-designer | `markdown-task-runner:task-designer` | 要件分析，設計方針策定，タスク分解 |
-| task-implementer | `markdown-task-runner:task-implementer` | 実際のコーディング |
-| task-reviewer | `markdown-task-runner:task-reviewer` | 実装のレビューと品質チェック |
-
-## ワークフロー
+### ワークフロー
 
 ```
-設計(1回) → [実装 → レビュー → (差し戻し?) → 実装 → レビュー...] → 承認 → 完了・コミット
+ファイル読み取り → 構造抽出 → brainstorm → 計画 → 実行 → 検証
 ```
 
-各タスクは必ず設計フェーズから開始し，レビュー承認まで実装・レビューを繰り返す．
-独立したタスクはgit-worktreeで並列実行可能．
+### 実行方法の選択
+
+タスクの規模に応じて実行方法が自動的に選択されます：
+
+| 規模 | 実行方法 |
+|------|----------|
+| 単一タスク | 直接実行 |
+| 独立した複数タスク | `superpowers:dispatching-parallel-agents` で並列サブエージェント実行 |
+| 順序依存のある複数タスク | `superpowers:subagent-driven-development` で逐次サブエージェント実行（レビュー付き） |
+| 大規模で協調が必要 | `TeamCreate` でエージェントチームを作成して遂行 |
+
+## ファイル構成
+
+```
+markdown-task-runner/
+├── .claude-plugin/
+│   └── plugin.json         # プラグインメタデータ
+├── skills/
+│   └── markdown-task/
+│       └── SKILL.md        # スキル定義
+└── README.md               # このファイル
+```

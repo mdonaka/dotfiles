@@ -1,8 +1,5 @@
 {
   "name": "markdown-task-runner",
-  "description": "Markdownファイルに定義されたタスクをサブエージェントで並列実行し，レビューと実装を交互に行うワークフロー管理プラグイン",
-  "version": "1.0.0",
-  "author": {
-    "name": "nakata"
-  }
+  "description": "Executes task instructions defined in Markdown files using superpowers workflow",
+  "version": "1.0.0"
 }
