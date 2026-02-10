@@ -1,4 +1,5 @@
 nvim/plugged/*
 nvim/colors/*
 .claude/
-task.md
+to_claude.md
+docs/plans/
