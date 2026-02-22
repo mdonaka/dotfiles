@@ -52,3 +52,8 @@ markdownファイルに書かれたタスク指示を読み取り、superpowers�
 | テンプレートやサンプルを無視 | mdに記載されたフォーマットに従う |
 | 対象ディレクトリ外を変更 | 指定されたディレクトリのみを対象にする |
 | 成果物の検証をスキップ | superpowers:verification-before-completionで必ず確認 |
+
+## Worktree
+
+- このプラグインの開発作業は必ずworktreeで行うこと
+- worktreeディレクトリ: `.worktrees/`
