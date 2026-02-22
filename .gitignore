@@ -3,3 +3,5 @@ nvim/colors/*
 .claude/
 to_claude.md
 docs/plans/
+.worktrees/
+task.md
