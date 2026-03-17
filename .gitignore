@@ -1,6 +1,5 @@
 nvim/plugged/*
 nvim/colors/*
-.claude/
 to_claude.md
 docs/plans/
 .worktrees/
