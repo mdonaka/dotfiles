@@ -27,23 +27,39 @@ if [ -z "$HOOK_JSON" ]; then
     exit 0
 fi
 
-# トランスクリプトパスを取得
-TRANSCRIPT_PATH=$(echo "$HOOK_JSON" | jq -r '.transcript_path // empty')
+# hook_event_name で発火経路を分岐
+HOOK_EVENT_NAME=$(echo "$HOOK_JSON" | jq -r '.hook_event_name // ""')
 
-# トランスクリプトから最新の tool_use を抽出
-TOOL_USE=""
-TOOL_USE_LINE=$(search_transcript "$TRANSCRIPT_PATH" '"type":"tool_use"')
-if [ -n "$TOOL_USE_LINE" ]; then
-    # tool_use オブジェクトを抽出
-    TOOL_USE=$(echo "$TOOL_USE_LINE" | jq -r '.message.content[] | select(.type == "tool_use")' 2>/dev/null || true)
-fi
-
-# tool_use が見つかった場合はフォーマット
-if [ -n "$TOOL_USE" ]; then
-    format_tool_message "$TOOL_USE"
+if [ "$HOOK_EVENT_NAME" = "PreToolUse" ]; then
+    # ユーザー入力を要するツール（AskUserQuestion等）の事前通知
+    TOOL_NAME=$(echo "$HOOK_JSON" | jq -r '.tool_name // ""')
+    case "$TOOL_NAME" in
+        AskUserQuestion)
+            TITLE_SUFFIX="needs your input"
+            CLAUDE_MESSAGE=$(echo "$HOOK_JSON" | jq -r '.tool_input.questions[0].question // empty')
+            ;;
+        *)
+            TITLE_SUFFIX="needs attention"
+            CLAUDE_MESSAGE="Tool: ${TOOL_NAME}"
+            ;;
+    esac
 else
-    # フォールバック: フック JSON の .message フィールドを使用
-    CLAUDE_MESSAGE=$(echo "$HOOK_JSON" | jq -r '.message // empty')
+    # Notification event (permission_prompt)
+    TITLE_SUFFIX="requires approval"
+
+    # トランスクリプトから最新の tool_use を抽出
+    TRANSCRIPT_PATH=$(echo "$HOOK_JSON" | jq -r '.transcript_path // empty')
+    TOOL_USE=""
+    TOOL_USE_LINE=$(search_transcript "$TRANSCRIPT_PATH" '"type":"tool_use"')
+    if [ -n "$TOOL_USE_LINE" ]; then
+        TOOL_USE=$(echo "$TOOL_USE_LINE" | jq -r '.message.content[] | select(.type == "tool_use")' 2>/dev/null || true)
+    fi
+
+    if [ -n "$TOOL_USE" ]; then
+        format_tool_message "$TOOL_USE"
+    else
+        CLAUDE_MESSAGE=$(echo "$HOOK_JSON" | jq -r '.message // empty')
+    fi
 fi
 
 # メッセージをフォーマット
@@ -57,7 +73,7 @@ PROJECT_NAME="${PROJECT_NAME##*/}"
 
 # 通知を送信
 send_notification \
-    "[${PROJECT_NAME}] requires approval" \
-    "${CLAUDE_MESSAGE:-Approval required}" \
+    "[${PROJECT_NAME}] ${TITLE_SUFFIX}" \
+    "${CLAUDE_MESSAGE:-Action required}" \
     "Purr" \
     "$SUBTITLE"
