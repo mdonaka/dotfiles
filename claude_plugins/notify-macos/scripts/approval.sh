@@ -44,21 +44,12 @@ if [ "$HOOK_EVENT_NAME" = "PreToolUse" ]; then
             ;;
     esac
 else
-    # Notification event (permission_prompt)
+    # PermissionRequest: 権限ダイアログ出現時に発火
     TITLE_SUFFIX="requires approval"
-
-    # トランスクリプトから最新の tool_use を抽出
-    TRANSCRIPT_PATH=$(echo "$HOOK_JSON" | jq -r '.transcript_path // empty')
-    TOOL_USE=""
-    TOOL_USE_LINE=$(search_transcript "$TRANSCRIPT_PATH" '"type":"tool_use"')
-    if [ -n "$TOOL_USE_LINE" ]; then
-        TOOL_USE=$(echo "$TOOL_USE_LINE" | jq -r '.message.content[] | select(.type == "tool_use")' 2>/dev/null || true)
-    fi
-
-    if [ -n "$TOOL_USE" ]; then
+    TOOL_NAME=$(echo "$HOOK_JSON" | jq -r '.tool_name // ""')
+    TOOL_USE=$(echo "$HOOK_JSON" | jq -c '{name: .tool_name, input: .tool_input}')
+    if [ -n "$TOOL_NAME" ]; then
         format_tool_message "$TOOL_USE"
-    else
-        CLAUDE_MESSAGE=$(echo "$HOOK_JSON" | jq -r '.message // empty')
     fi
 fi
 
