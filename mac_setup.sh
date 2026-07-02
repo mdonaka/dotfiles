@@ -3,8 +3,12 @@
 # Homebrew
 if ! command -v brew &> /dev/null; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+# brewのPATHを永続化(Apple Silicon)
+if ! grep -q 'brew shellenv' ~/.zprofile 2>/dev/null; then
+	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # git
 git config --global core.editor vim
@@ -14,6 +18,11 @@ mkdir -p ~/.claude
 ln -sf ~/dotfiles/CLAUDE.md ~/.claude/CLAUDE.md
 git config --global alias.tree 'log --graph --all --format="%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta bold)%d%Creset %s" -n 20'
 
+# zsh
+if ! grep -q 'dotfiles/.zshrc' ~/.zshrc 2>/dev/null; then
+	echo 'source ~/dotfiles/.zshrc' >> ~/.zshrc
+fi
+
 # config
 mkdir -p ~/.config
 for file in $(find ./.config/ -maxdepth 1 -type f); do
@@ -22,13 +31,11 @@ done
 
 # fzf
 brew install fzf
+# キーバインド/補完は.zshrcの`source <(fzf --zsh)`で有効化
 
-# neovim
+# neovim (プラグインはlazy.nvimが起動時に自動bootstrap)
 brew install neovim
 ln -sf ~/dotfiles/nvim ~/.config/nvim
-# vim-plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Python (pyenv)
 brew install pyenv
