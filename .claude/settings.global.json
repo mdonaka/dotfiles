@@ -141,15 +141,18 @@
       "Bash(gh run rerun:*)",
       "Bash(gh run cancel:*)",
       "Bash(gh secret:*)",
-      "Bash(gh api:*)",
-      "Bash(gh auth:*)"
+      "Bash(gh auth login:*)",
+      "Bash(gh auth logout:*)",
+      "Bash(gh auth refresh:*)",
+      "Bash(gh auth token:*)"
     ]
   },
   "autoMode": {
     "soft_deny": [
       "$defaults",
       "ダウンロードしたスクリプトやコードをその場で実行することを禁止する",
-      "現在の作業ディレクトリの外にあるファイルの読み書き、および無関係な他リポジトリやホームディレクトリ配下の設定・認証ファイルへのアクセスを禁止する"
+      "現在の作業ディレクトリの外にあるファイルの読み書き、および無関係な他リポジトリやホームディレクトリ配下の設定・認証ファイルへのアクセスを禁止する",
+      "gh api・curl・wget などで GET 以外の状態変更リクエスト（POST/PUT/PATCH/DELETE、-X や -f/--field による書き込み）を行うことを禁止する。読み取り専用の GET リクエストは許可する"
     ],
     "hard_deny": [
       "$defaults",
