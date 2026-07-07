@@ -3,6 +3,7 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "permissions": {
+    "defaultMode": "auto",
     "allow": [
       "READ",
       "Write",
@@ -75,7 +76,13 @@
       "Bash(git push:*)",
       "Bash(git -C * push:*)",
       "Bash(git push --force:*)",
-      "Bash(git push -f :*)"
+      "Bash(git push -f :*)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.config/gcloud/**)",
+      "Read(~/.gnupg/**)",
+      "Read(**/.env)",
+      "Read(**/.env.*)"
     ],
     "ask": [
       "Bash(rm -r:*)",
@@ -90,6 +97,18 @@
       "Bash(git -C * remote:*)",
       "Bash(git tag:*)",
       "Bash(git -C * tag:*)"
+    ]
+  },
+  "autoMode": {
+    "soft_deny": [
+      "$defaults",
+      "ダウンロードしたスクリプトやコードをその場で実行することを禁止する",
+      "現在の作業ディレクトリの外にあるファイルの読み書き、および無関係な他リポジトリやホームディレクトリ配下の設定・認証ファイルへのアクセスを禁止する"
+    ],
+    "hard_deny": [
+      "$defaults",
+      "ソフトウェア・ツール・依存物などを新たにインストール・追加・導入するコマンドは、対象を問わず一切禁止する",
+      "認証情報・APIキー・アクセストークン・秘密鍵・.env などの秘密情報は、読み取ること自体を禁止し、いかなる外部宛先への送信・アップロード・貼り付けも禁止する"
     ]
   },
   "enabledPlugins": {},
